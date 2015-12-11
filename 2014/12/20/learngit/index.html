@@ -1,0 +1,558 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>如何上传本地文件到github | Jenko</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Jenko">
+    
+
+    
+    <meta name="description" content="在讲如何上传本地文件到github之前，有必要先简单的讲一下如何在本地创建仓库，以及如何添加文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何上传本地文件到github">
+<meta property="og:url" content="http://yoursite.com/2014/12/20/learngit/index.html">
+<meta property="og:site_name" content="Jenko">
+<meta property="og:description" content="在讲如何上传本地文件到github之前，有必要先简单的讲一下如何在本地创建仓库，以及如何添加文件。">
+<meta property="og:updated_time" content="2015-10-28T14:26:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何上传本地文件到github">
+<meta name="twitter:description" content="在讲如何上传本地文件到github之前，有必要先简单的讲一下如何在本地创建仓库，以及如何添加文件。">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Jenko" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Jenko" title="Jenko"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Jenko">Jenko</a></h1>
+				<h2 class="blog-motto">--The world not death,death to surrender.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/12/20/learngit/" title="如何上传本地文件到github" itemprop="url">如何上传本地文件到github</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2014-12-20T07:01:24.000Z" itemprop="datePublished"> 发表于 2014-12-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#创建版本库"><span class="toc-number">1.</span> <span class="toc-text">创建版本库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-在电脑上选择一个合适的地方，创建一个空目录。"><span class="toc-number">1.1.</span> <span class="toc-text">1.在电脑上选择一个合适的地方，创建一个空目录。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-通过git_init这个命令初始化仓库，使之变为自己可以管理的仓库。"><span class="toc-number">1.2.</span> <span class="toc-text">2.通过git init这个命令初始化仓库，使之变为自己可以管理的仓库。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在本地仓库中添加文件"><span class="toc-number">2.</span> <span class="toc-text">在本地仓库中添加文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-使用git_add命令告诉git，把文件添加到仓库。"><span class="toc-number">2.1.</span> <span class="toc-text">1.使用git add命令告诉git，把文件添加到仓库。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用git_commit命令告诉git，把文件提交到仓库。"><span class="toc-number">2.2.</span> <span class="toc-text">2.使用git commit命令告诉git，把文件提交到仓库。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加远程库"><span class="toc-number">3.</span> <span class="toc-text">添加远程库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
+		
+		</div>
+		
+		<p>在讲如何上传本地文件到github之前，有必要先简单的讲一下如何在本地创建仓库，以及如何添加文件。<br><a id="more"></a></p>
+<h1 id="创建版本库">创建版本库</h1><p>什么是版本库呢？版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。<br>所以，创建一个版本库非常简单。</p>
+<h2 id="1-在电脑上选择一个合适的地方，创建一个空目录。">1.在电脑上选择一个合适的地方，创建一个空目录。</h2><p><code>$ mkdir learngit</code>创建一个名为learngit的文件夹。</p>
+<p><code>$ cd learngit</code>进入该文件夹。</p>
+<p><code>$ pwd</code>查看一下当前文件夹路径。</p>
+<h2 id="2-通过git_init这个命令初始化仓库，使之变为自己可以管理的仓库。">2.通过<code>git init</code>这个命令初始化仓库，使之变为自己可以管理的仓库。</h2><p>瞬间Git就把仓库建好了，而且告诉你是一个空的仓库（empty Git repository），细心的读者可以发现当前目录下多了一个<code>.git</code>的目录，这个目录是Git来跟踪管理版本库的，没事千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。</p>
+<p>如果你没有看到<code>.git</code>目录，那是因为这个目录默认是隐藏的，用<code>ls -ah</code>命令就可以看见。</p>
+<h1 id="在本地仓库中添加文件">在本地仓库中添加文件</h1><p>现在，我们先创建一个名为text的txt格式的文件</p>
+<p><code>$ vi text</code>编辑内容为<code>Hello world!</code></p>
+<h2 id="1-使用git_add命令告诉git，把文件添加到仓库。">1.使用<code>git add</code>命令告诉git，把文件添加到仓库。</h2><p><code>$ git add text</code>然后回车</p>
+<p>这时候终端并没有什么提示，这样就对了。</p>
+<h2 id="2-使用git_commit命令告诉git，把文件提交到仓库。">2.使用<code>git commit</code>命令告诉git，把文件提交到仓库。</h2><p><code>$ git commit -m &quot;a text file&quot;</code></p>
+<p>然后下面会出现这段代码告诉你添加文件的信息，也就是添加成功了。</p>
+<pre><code>[master <span class="number">79</span>d23f4] <span class="tag">a</span> text file
+<span class="number">1</span> file changed, <span class="number">1</span> <span class="function"><span class="title">insertion</span><span class="params">(+)</span></span>
+create mode <span class="number">100644</span> text
+</code></pre><p>简单解释一下<code>git commit</code>命令，<code>-m</code>后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。</p>
+<h1 id="添加远程库">添加远程库</h1><p>之前在介绍搭建hexo静态博客的时候，有讲过如何在github上创建仓库。所以，这里添加远程库也是一个道理，在Repository name填入<code>learngit</code>(这里要和你本地仓库的名称一样)，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库。</p>
+<p>目前，在GitHub上的这个learngit仓库还是空的，GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。</p>
+<p>现在，我们根据GitHub的提示，在本地的<code>learngit</code>仓库下运行命令：</p>
+<pre><code><span class="variable">$ </span>git remote add origin git<span class="variable">@github</span>.<span class="symbol">com:</span><span class="constant">IsaJenko</span>/learngit.git
+</code></pre><p>请千万注意，把上面的<code>IsaJenko</code>替换成你自己的GitHub账户名，否则，你在本地关联的就是我的远程库，关联没有问题，但是你以后推送是推不上去的，因为你的SSH Key公钥不在我的账户列表中。</p>
+<p>添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。</p>
+<p>下一步，就可以把本地库的所有内容推送到远程库上：</p>
+<p><code>$ git push -u origin master</code></p>
+<p>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<p>推送成功后，可以立刻在GitHub页面中看到远程库的内容已经和本地一模一样。</p>
+<p>从现在起，只要本地作了提交，也就是在本地<code>git add</code>之后在<code>git commit</code>之后就可以通过命令：</p>
+<p><code>$ git push origin master</code></p>
+<p>把本地<code>master</code>分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！</p>
+<h1 id="最后">最后</h1><p>一些可能遇到的问题解决：<br>如果输入</p>
+<p><code>$ git remote add origin git@github.com:djqiang（github帐号名）/gitdemo（项目名）.git</code></p>
+<p>提示出错信息：<code>fatal: remote origin already exists.</code></p>
+<p>解决办法如下：</p>
+<p>1、先输入<code>$ git remote rm origin</code></p>
+<p>2、再输入<code>$ git remote add origin git@github.com:djqiang/gitdemo.git</code> </p>
+<p>就不会报错了！</p>
+<p>如果输入<code>$ git push origin master</code></p>
+<p>提示出错信息：<code>error:failed to push som refs to …….</code></p>
+<p>解决办法如下：</p>
+<p>1、先输入<code>$ git pull origin master</code> //先把远程服务器github上面的文件拉下来</p>
+<p>2、再输入<code>$ git push origin master</code></p>
+<p>3、如果出现报错 <code>fatal: Couldn’t find remote ref master</code>或者<code>fatal: ‘origin’ does not appear to be a git repository</code>以及<code>fatal: Could not read from remote repository.</code></p>
+<p>4、则需要重新输入</p>
+<p><code>$ git remote add origingit@github.com:IsaJenko/learngit.git</code></p>
+<hr>
+<p>Create a new repository on the command line</p>
+<pre><code>touch README<span class="class">.md</span>
+git init
+git add README<span class="class">.md</span>
+git commit -m <span class="string">"first commit"</span>
+git remote add origin git@github<span class="class">.com</span>:IsaJenko/learngit<span class="class">.git</span>
+git push -u origin master
+</code></pre><p>Push an existing repository from the command line</p>
+<pre><code>git remote add origin git@github<span class="class">.com</span>:IsaJenko/learngit<span class="class">.git</span>
+git push -u origin master
+</code></pre><hr>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">git</a><a href="/tags/github/">github</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2014/12/20/learngit/" data-title="如何上传本地文件到github | Jenko" data-tsina="3937501007" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/01/10/git1/" title="Git分支管理">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Git分支管理</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/12/05/GCD/"  title="GCD使用">
+ <strong>下一篇：</strong><br/> 
+ <span>GCD使用
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2014/12/20/learngit/" data-title="如何上传本地文件到github" data-url="http://yoursite.com/2014/12/20/learngit/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#创建版本库"><span class="toc-number">1.</span> <span class="toc-text">创建版本库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-在电脑上选择一个合适的地方，创建一个空目录。"><span class="toc-number">1.1.</span> <span class="toc-text">1.在电脑上选择一个合适的地方，创建一个空目录。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-通过git_init这个命令初始化仓库，使之变为自己可以管理的仓库。"><span class="toc-number">1.2.</span> <span class="toc-text">2.通过git init这个命令初始化仓库，使之变为自己可以管理的仓库。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在本地仓库中添加文件"><span class="toc-number">2.</span> <span class="toc-text">在本地仓库中添加文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-使用git_add命令告诉git，把文件添加到仓库。"><span class="toc-number">2.1.</span> <span class="toc-text">1.使用git add命令告诉git，把文件添加到仓库。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用git_commit命令告诉git，把文件提交到仓库。"><span class="toc-number">2.2.</span> <span class="toc-text">2.使用git commit命令告诉git，把文件提交到仓库。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加远程库"><span class="toc-number">3.</span> <span class="toc-text">添加远程库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Swift/" title="Swift">Swift<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Xcode插件/" title="Xcode插件">Xcode插件<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/技术篇/" title="技术篇">技术篇<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/旅游篇/" title="旅游篇">旅游篇<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/随笔/" title="随笔">随笔<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/798/" style="font-size: 10px;">798</a> <a href="/tags/CollectionView/" style="font-size: 10px;">CollectionView</a> <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/GET/" style="font-size: 10px;">GET</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hack/" style="font-size: 10px;">Hack</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/POST/" style="font-size: 10px;">POST</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UI控件/" style="font-size: 16.67px;">UI控件</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/impress-js/" style="font-size: 10px;">impress.js</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/loadview方法/" style="font-size: 10px;">loadview方法</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/不知所云/" style="font-size: 10px;">不知所云</a> <a href="/tags/串行/" style="font-size: 10px;">串行</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/北京/" style="font-size: 10px;">北京</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/多图/" style="font-size: 10px;">多图</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/欢乐谷/" style="font-size: 10px;">欢乐谷</a> <a href="/tags/瀑布流/" style="font-size: 10px;">瀑布流</a> <a href="/tags/炫酷/" style="font-size: 10px;">炫酷</a> <a href="/tags/玩/" style="font-size: 10px;">玩</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/装X/" style="font-size: 13.33px;">装X</a> <a href="/tags/逼格/" style="font-size: 10px;">逼格</a> <a href="/tags/错误信息/" style="font-size: 10px;">错误信息</a> <a href="/tags/黑客/" style="font-size: 10px;">黑客</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.baidu.com" target="_blank" title="Baidu">Baidu</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cocoachina.com" target="_blank" title="CocoaChina">CocoaChina</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/dsxniubility/" target="_blank" title="董铂然">董铂然</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 任何一个计算机的难题都可以通过增加一个抽象层来解决 <br/>
+			然而想吃胖要如何解决</p>
+<span id="busuanzi_container_site_pv">
+    本站总点击次数 <span id="busuanzi_value_site_pv"></span> 次
+</span> 
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3937501007" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com//IsaJenko" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:jenko_6453@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		由 <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> 强力驱动  Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Jenko">Jenko</a>
+		
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"jenko"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

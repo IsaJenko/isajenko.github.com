@@ -1,0 +1,528 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Mac终端基础命令操作 | Jenko</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Jenko">
+    
+
+    
+    <meta name="description" content="1.$cd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac终端基础命令操作">
+<meta property="og:url" content="http://yoursite.com/2015/09/11/linux1/index.html">
+<meta property="og:site_name" content="Jenko">
+<meta property="og:description" content="1.$cd">
+<meta property="og:updated_time" content="2015-10-28T14:27:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac终端基础命令操作">
+<meta name="twitter:description" content="1.$cd">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Jenko" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Jenko" title="Jenko"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Jenko">Jenko</a></h1>
+				<h2 class="blog-motto">--The world not death,death to surrender.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/11/linux1/" title="Mac终端基础命令操作" itemprop="url">Mac终端基础命令操作</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-11T13:19:50.000Z" itemprop="datePublished"> 发表于 2015-09-11</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-$cd"><span class="toc-number">1.</span> <span class="toc-text">1.$cd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-$ls"><span class="toc-number">2.</span> <span class="toc-text">2.$ls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-命令记忆功能"><span class="toc-number">3.</span> <span class="toc-text">3.命令记忆功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-自动补全功能"><span class="toc-number">4.</span> <span class="toc-text">4.自动补全功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-关机命令"><span class="toc-number">5.</span> <span class="toc-text">5.关机命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-如何通过终端命令删除Finder中无法删除的文件"><span class="toc-number">6.</span> <span class="toc-text">6.如何通过终端命令删除Finder中无法删除的文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1)-打开终端应用程序"><span class="toc-number">6.1.</span> <span class="toc-text">1).打开终端应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2)-输入命令：sudo_rm_-r_-f"你要删除的文件""><span class="toc-number">6.2.</span> <span class="toc-text">2).输入命令：sudo rm -r -f"你要删除的文件"</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3)-把你要删除的文件或者文件夹用鼠标拖进终端窗口，也可以一次拖好多进来"><span class="toc-number">6.3.</span> <span class="toc-text">3).把你要删除的文件或者文件夹用鼠标拖进终端窗口，也可以一次拖好多进来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4)-然后再终端中回车"><span class="toc-number">6.4.</span> <span class="toc-text">4).然后再终端中回车</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5)-输入当前管理员用户密码。如果没有密码就直接回车。"><span class="toc-number">6.5.</span> <span class="toc-text">5).输入当前管理员用户密码。如果没有密码就直接回车。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6)-终端中没有任何提示信息表明成功删除"><span class="toc-number">6.6.</span> <span class="toc-text">6).终端中没有任何提示信息表明成功删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意："><span class="toc-number">7.</span> <span class="toc-text">注意：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解释："><span class="toc-number">8.</span> <span class="toc-text">解释：</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="1-$cd">1.$cd</h2><a id="more"></a>
+<p>命令cd表示：进入某个文件夹目录，或返回某目录</p>
+<ul>
+<li><code>cd /</code> 进入根目录</li>
+<li><code>cd bin</code> 进入某目录(如：进入bin目录)</li>
+<li><code>cd ..</code> 返回上层目录</li>
+<li><code>cd ../ ../</code> 返回上上层目录(中间有没有空格都一样)</li>
+<li><code>cd ~</code> 进入用户目录</li>
+</ul>
+<h2 id="2-$ls">2.$ls</h2><p>命令ls表示：显示本层目录的所有文件和文件夹</p>
+<p><code>$ ls</code><br>当ls后面加上具体的目录时直接输出该文件夹得详细目录信息(比如bin目录下)</p>
+<p><code>$ ls bin</code></p>
+<h2 id="3-命令记忆功能">3.命令记忆功能</h2><p>按上下键，可以查看使用过的所有命令。</p>
+<h2 id="4-自动补全功能">4.自动补全功能</h2><ul>
+<li>按tab键，当在一串指令的第一个词后面，自动补全命令</li>
+<li>按tab键，当在一串指令的第二个词后面，自动补全文件名或文件目录</li>
+<li>连按两次tab键，(上面两种晴空中，若再按一次tab键)，则显示所有某些字母开头的命令，或本目录下的所有文件名。</li>
+</ul>
+<h2 id="5-关机命令">5.关机命令</h2><p><code>sudo shutdown -h now</code></p>
+<p>有些时候系统出问题关机不成功可以试试用命令行进行关机，毕竟裸关电源不好。</p>
+<h2 id="6-如何通过终端命令删除Finder中无法删除的文件">6.如何通过终端命令删除Finder中无法删除的文件</h2><p>有些时候因为某些原因，比如死机、文件下载到一半意外退出，这时经常有文件无法删除，系统提示你权限不够。这个时候我们就可以利用一行简单的命令进行删除。</p>
+<h3 id="1)-打开终端应用程序">1).打开终端应用程序</h3><h3 id="2)-输入命令：sudo_rm_-r_-f&quot;你要删除的文件&quot;">2).输入命令：<code>sudo rm -r -f&quot;你要删除的文件&quot;</code></h3><p>还要注意终端命令式区分大小写的，这里全部是小写。</p>
+<h3 id="3)-把你要删除的文件或者文件夹用鼠标拖进终端窗口，也可以一次拖好多进来">3).把你要删除的文件或者文件夹用鼠标拖进终端窗口，也可以一次拖好多进来</h3><h3 id="4)-然后再终端中回车">4).然后再终端中回车</h3><h3 id="5)-输入当前管理员用户密码。如果没有密码就直接回车。">5).输入当前管理员用户密码。如果没有密码就直接回车。</h3><h3 id="6)-终端中没有任何提示信息表明成功删除">6).终端中没有任何提示信息表明成功删除</h3><blockquote>
+<p>什么都不显示才是好命令</p>
+</blockquote>
+<h2 id="注意：">注意：</h2><p>如果用这个命令还无法删除，有两种可能性：一是你删除的是系统正在使用的临时文件之类的。二是有可能你的硬盘目录出现问题。这时清先用磁盘工具检查一下你的硬盘。</p>
+<h2 id="解释：">解释：</h2><p>sudo命令：任何命令前都可以加上sudo，sudo表示是管理员权限，可直接管理系统中较重要的文件，一般使用需要询问密码。输入管理员密码后，才能完成操作。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/基础/">基础</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/09/11/linux1/" data-title="Mac终端基础命令操作 | Jenko" data-tsina="3937501007" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/15/UITableView/" title="UITableView">
+  <strong>上一篇：</strong><br/>
+  <span>
+  UITableView</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/06/22/transfer/"  title="iOS-网络请求数据">
+ <strong>下一篇：</strong><br/> 
+ <span>iOS-网络请求数据
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/09/11/linux1/" data-title="Mac终端基础命令操作" data-url="http://yoursite.com/2015/09/11/linux1/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-$cd"><span class="toc-number">1.</span> <span class="toc-text">1.$cd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-$ls"><span class="toc-number">2.</span> <span class="toc-text">2.$ls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-命令记忆功能"><span class="toc-number">3.</span> <span class="toc-text">3.命令记忆功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-自动补全功能"><span class="toc-number">4.</span> <span class="toc-text">4.自动补全功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-关机命令"><span class="toc-number">5.</span> <span class="toc-text">5.关机命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-如何通过终端命令删除Finder中无法删除的文件"><span class="toc-number">6.</span> <span class="toc-text">6.如何通过终端命令删除Finder中无法删除的文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1)-打开终端应用程序"><span class="toc-number">6.1.</span> <span class="toc-text">1).打开终端应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2)-输入命令：sudo_rm_-r_-f"你要删除的文件""><span class="toc-number">6.2.</span> <span class="toc-text">2).输入命令：sudo rm -r -f"你要删除的文件"</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3)-把你要删除的文件或者文件夹用鼠标拖进终端窗口，也可以一次拖好多进来"><span class="toc-number">6.3.</span> <span class="toc-text">3).把你要删除的文件或者文件夹用鼠标拖进终端窗口，也可以一次拖好多进来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4)-然后再终端中回车"><span class="toc-number">6.4.</span> <span class="toc-text">4).然后再终端中回车</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5)-输入当前管理员用户密码。如果没有密码就直接回车。"><span class="toc-number">6.5.</span> <span class="toc-text">5).输入当前管理员用户密码。如果没有密码就直接回车。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6)-终端中没有任何提示信息表明成功删除"><span class="toc-number">6.6.</span> <span class="toc-text">6).终端中没有任何提示信息表明成功删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意："><span class="toc-number">7.</span> <span class="toc-text">注意：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解释："><span class="toc-number">8.</span> <span class="toc-text">解释：</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Swift/" title="Swift">Swift<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Xcode插件/" title="Xcode插件">Xcode插件<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/技术篇/" title="技术篇">技术篇<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/旅游篇/" title="旅游篇">旅游篇<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/随笔/" title="随笔">随笔<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/798/" style="font-size: 10px;">798</a> <a href="/tags/CollectionView/" style="font-size: 10px;">CollectionView</a> <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/GET/" style="font-size: 10px;">GET</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hack/" style="font-size: 10px;">Hack</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/POST/" style="font-size: 10px;">POST</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UI控件/" style="font-size: 16.67px;">UI控件</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/impress-js/" style="font-size: 10px;">impress.js</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/loadview方法/" style="font-size: 10px;">loadview方法</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/不知所云/" style="font-size: 10px;">不知所云</a> <a href="/tags/串行/" style="font-size: 10px;">串行</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/北京/" style="font-size: 10px;">北京</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/多图/" style="font-size: 10px;">多图</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/欢乐谷/" style="font-size: 10px;">欢乐谷</a> <a href="/tags/瀑布流/" style="font-size: 10px;">瀑布流</a> <a href="/tags/炫酷/" style="font-size: 10px;">炫酷</a> <a href="/tags/玩/" style="font-size: 10px;">玩</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/装X/" style="font-size: 13.33px;">装X</a> <a href="/tags/逼格/" style="font-size: 10px;">逼格</a> <a href="/tags/错误信息/" style="font-size: 10px;">错误信息</a> <a href="/tags/黑客/" style="font-size: 10px;">黑客</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.baidu.com" target="_blank" title="Baidu">Baidu</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cocoachina.com" target="_blank" title="CocoaChina">CocoaChina</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/dsxniubility/" target="_blank" title="董铂然">董铂然</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 任何一个计算机的难题都可以通过增加一个抽象层来解决 <br/>
+			然而想吃胖要如何解决</p>
+<span id="busuanzi_container_site_pv">
+    本站总点击次数 <span id="busuanzi_value_site_pv"></span> 次
+</span> 
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3937501007" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com//IsaJenko" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:jenko_6453@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		由 <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> 强力驱动  Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Jenko">Jenko</a>
+		
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"jenko"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

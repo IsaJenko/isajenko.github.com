@@ -1,0 +1,552 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>简单玩起Hexo | Jenko</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Jenko">
+    
+
+    
+    <meta name="description" content="简介hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单玩起Hexo">
+<meta property="og:url" content="http://yoursite.com/2014/09/06/teach/index.html">
+<meta property="og:site_name" content="Jenko">
+<meta property="og:description" content="简介hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。">
+<meta property="og:image" content="http://yoursite.com/image/new_repository.png">
+<meta property="og:image" content="http://yoursite.com/image/name_repositories.png">
+<meta property="og:image" content="http://yoursite.com/image/id_rsa.pub.png">
+<meta property="og:image" content="http://yoursite.com/image/success.png">
+<meta property="og:updated_time" content="2015-10-29T06:45:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单玩起Hexo">
+<meta name="twitter:description" content="简介hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Jenko" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Jenko" title="Jenko"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Jenko">Jenko</a></h1>
+				<h2 class="blog-motto">--The world not death,death to surrender.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/09/06/teach/" title="简单玩起Hexo" itemprop="url">简单玩起Hexo</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2014-09-06T02:30:05.000Z" itemprop="datePublished"> 发表于 2014-09-06</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#怎样搭建hexo博客"><span class="toc-number">1.1.</span> <span class="toc-text">怎样搭建hexo博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Git"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Node-js"><span class="toc-number">1.1.2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装hexo"><span class="toc-number">1.1.3.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">1.1.4.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成静态页面"><span class="toc-number">1.1.5.</span> <span class="toc-text">生成静态页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地启动"><span class="toc-number">1.1.6.</span> <span class="toc-text">本地启动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GitHub"><span class="toc-number">1.3.</span> <span class="toc-text">GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加SSH公钥"><span class="toc-number">1.3.1.</span> <span class="toc-text">添加SSH公钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成密钥"><span class="toc-number">1.3.2.</span> <span class="toc-text">生成密钥</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署Hexo到Github上"><span class="toc-number">1.4.</span> <span class="toc-text">部署Hexo到Github上</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后"><span class="toc-number">2.</span> <span class="toc-text">最后</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="简介">简介</h1><p>hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github上。<br><a id="more"></a></p>
+<h2 id="怎样搭建hexo博客">怎样搭建hexo博客</h2><h3 id="安装Git">安装Git</h3><p>作用：把本地的hexo内容提交到github上。<br>安装Xcode就自带Git，这步可以忽略。</p>
+<h3 id="安装Node-js">安装Node.js</h3><p>作用：用来生成静态页面的。<br>到Node.js官网下载就OK。</p>
+<h3 id="安装hexo">安装hexo</h3><p>Node和Git都安装好后，可执行如下命令安装hexo:</p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo</span>
+</code></pre><h3 id="初始化">初始化</h3><p>然后，执行init命令初始化hexo到你指定的目录：</p>
+<pre><code><span class="title">hexo</span> init
+</code></pre><p>我是直接</p>
+<pre><code><span class="title">hexo</span> init Jenko
+</code></pre><h3 id="生成静态页面">生成静态页面</h3><p>cd到你的init目录，执行如下命令，生成静态页面至hexo\public\目录</p>
+<pre><code>hexo <span class="keyword">ge</span><span class="label">nerate</span>
+</code></pre><p>或</p>
+<pre><code><span class="title">hexo</span> g
+</code></pre><h3 id="本地启动">本地启动</h3><p>执行如下命令，启动本地服务，进行文章预览调试。</p>
+<pre><code>hexo <span class="keyword">server</span>
+</code></pre><p>或</p>
+<pre><code><span class="title">hexo</span> s
+</code></pre><p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>就可以看到效果。</p>
+<h2 id="问题">问题</h2><p>这里可能会出现一些问题导致本地的预览界面出不来</p>
+<ul>
+<li><p>问题1：</p>
+<p>  Besides,utilities are separated into a standalone.hexo.util is not<br>  reachable anymore.</p>
+</li>
+</ul>
+<p>解决方法，执行命令：</p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-<span class="keyword">server</span> <span class="comment">--save</span></span>
+</code></pre><ul>
+<li><p>问题2：<br>什么都没有显示或者显示<code>Cannot GET/</code><br>解决方法，由于2.6以后就更新了，我们需要手动配置些东西，执行命令：</p>
+<p>  <code>npm install hexo-renderer-ejs --save</code></p>
+<p>  <code>npm install hexo-renderer-stylus --save</code></p>
+<p>  <code>npm install hexo-renderer-marked --save</code></p>
+</li>
+</ul>
+<h2 id="GitHub">GitHub</h2><p>1.首先注册一个GitHub账号。<br>2.建立与你用户名对应的仓库，仓库名必须为<strong>your_username.github.com</strong><br>3.在Github上添加SSH公钥。<br>下图为建立仓库：</p>
+<hr>
+<p><img src="/image/new_repository.png" alt="Github mark"></p>
+<hr>
+<p><img src="/image/name_repositories.png" alt="Github mark"></p>
+<hr>
+<h3 id="添加SSH公钥">添加SSH公钥</h3><p>首先设置你的用户名和密码：</p>
+<pre><code>git config --global user<span class="class">.email</span> <span class="string">"这里是你申请Github账号时的邮箱"</span>
+git config --global user<span class="class">.name</span> <span class="string">"这里是你申请Github账号时的name"</span>
+</code></pre><h3 id="生成密钥">生成密钥</h3><pre><code>ssh-keygen -t rsa -<span class="keyword">C</span> <span class="string">"邮箱"</span>
+</code></pre><p>下图是我生成密钥的路径，注意！添加到Github中的是<code>id_rsa.pub</code>这个公钥。<br>在终端中，编辑它拷贝下来到Github中ADD SSHKey就OK了。</p>
+<hr>
+<p><img src="/image/id_rsa.pub.png" alt="Github Mark"></p>
+<hr>
+<h2 id="部署Hexo到Github上">部署Hexo到Github上</h2><p>编辑你初始化后文件夹里的<code>_config.yml</code><br>找到下面的位置并修改，<code>username</code>为你的Github name。<br>注意冒号后面带一个半角的空格在输入。</p>
+<pre><code><span class="string">deploy:</span>
+<span class="string">type:</span> git
+<span class="string">repository:</span> <span class="string">https:</span><span class="comment">//github.com/username/username.github.io.git</span>
+<span class="string">branch:</span> master
+</code></pre><p>应该就成功部署到Github上了，如下图<br><img src="/image/success.png" alt="Github mark"></p>
+<hr>
+<h1 id="最后">最后</h1><p>这个博客是我用3天时间搭建的，其中还有很多问题尚未解决。<br>由于本人能力有限，上面的博文仅作为参考。<br>希望大家能共同进步。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/hexo/">hexo</a><a href="/tags/不知所云/">不知所云</a><a href="/tags/玩/">玩</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2014/09/06/teach/" data-title="简单玩起Hexo | Jenko" data-tsina="3937501007" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/09/08/linux/" title="linux基础之错误信息">
+  <strong>上一篇：</strong><br/>
+  <span>
+  linux基础之错误信息</span>
+</a>
+</div>
+
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2014/09/06/teach/" data-title="简单玩起Hexo" data-url="http://yoursite.com/2014/09/06/teach/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#怎样搭建hexo博客"><span class="toc-number">1.1.</span> <span class="toc-text">怎样搭建hexo博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Git"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Node-js"><span class="toc-number">1.1.2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装hexo"><span class="toc-number">1.1.3.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">1.1.4.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成静态页面"><span class="toc-number">1.1.5.</span> <span class="toc-text">生成静态页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地启动"><span class="toc-number">1.1.6.</span> <span class="toc-text">本地启动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GitHub"><span class="toc-number">1.3.</span> <span class="toc-text">GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加SSH公钥"><span class="toc-number">1.3.1.</span> <span class="toc-text">添加SSH公钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成密钥"><span class="toc-number">1.3.2.</span> <span class="toc-text">生成密钥</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署Hexo到Github上"><span class="toc-number">1.4.</span> <span class="toc-text">部署Hexo到Github上</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后"><span class="toc-number">2.</span> <span class="toc-text">最后</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Swift/" title="Swift">Swift<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Xcode插件/" title="Xcode插件">Xcode插件<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/技术篇/" title="技术篇">技术篇<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/旅游篇/" title="旅游篇">旅游篇<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/随笔/" title="随笔">随笔<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/798/" style="font-size: 10px;">798</a> <a href="/tags/CollectionView/" style="font-size: 10px;">CollectionView</a> <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/GET/" style="font-size: 10px;">GET</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hack/" style="font-size: 10px;">Hack</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/POST/" style="font-size: 10px;">POST</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UI控件/" style="font-size: 16.67px;">UI控件</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/impress-js/" style="font-size: 10px;">impress.js</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/loadview方法/" style="font-size: 10px;">loadview方法</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/不知所云/" style="font-size: 10px;">不知所云</a> <a href="/tags/串行/" style="font-size: 10px;">串行</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/北京/" style="font-size: 10px;">北京</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/多图/" style="font-size: 10px;">多图</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/欢乐谷/" style="font-size: 10px;">欢乐谷</a> <a href="/tags/瀑布流/" style="font-size: 10px;">瀑布流</a> <a href="/tags/炫酷/" style="font-size: 10px;">炫酷</a> <a href="/tags/玩/" style="font-size: 10px;">玩</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/装X/" style="font-size: 13.33px;">装X</a> <a href="/tags/逼格/" style="font-size: 10px;">逼格</a> <a href="/tags/错误信息/" style="font-size: 10px;">错误信息</a> <a href="/tags/黑客/" style="font-size: 10px;">黑客</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.baidu.com" target="_blank" title="Baidu">Baidu</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cocoachina.com" target="_blank" title="CocoaChina">CocoaChina</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/dsxniubility/" target="_blank" title="董铂然">董铂然</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 任何一个计算机的难题都可以通过增加一个抽象层来解决 <br/>
+			然而想吃胖要如何解决</p>
+<span id="busuanzi_container_site_pv">
+    本站总点击次数 <span id="busuanzi_value_site_pv"></span> 次
+</span> 
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3937501007" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com//IsaJenko" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:jenko_6453@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		由 <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> 强力驱动  Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Jenko">Jenko</a>
+		
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"jenko"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

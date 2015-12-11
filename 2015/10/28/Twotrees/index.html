@@ -1,0 +1,574 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>You need to know | Jenko</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Jenko">
+    
+
+    
+    <meta name="description" content="这几天详细了解了下二叉树的相关算法，原因是看了唐boy的一篇博客(你会翻转二叉树吗?)，还有一篇关于百度的校招，深刻体会到二叉树的重要性。于是乎，从网上收集并整理了一些关于二叉树的资料，及相关算法的实现（主要是Objective-C的，但是算法思想是相通的），以便以后复习时查阅。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="You need to know">
+<meta property="og:url" content="http://yoursite.com/2015/10/28/Twotrees/index.html">
+<meta property="og:site_name" content="Jenko">
+<meta property="og:description" content="这几天详细了解了下二叉树的相关算法，原因是看了唐boy的一篇博客(你会翻转二叉树吗?)，还有一篇关于百度的校招，深刻体会到二叉树的重要性。于是乎，从网上收集并整理了一些关于二叉树的资料，及相关算法的实现（主要是Objective-C的，但是算法思想是相通的），以便以后复习时查阅。">
+<meta property="og:updated_time" content="2015-10-28T14:25:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="You need to know">
+<meta name="twitter:description" content="这几天详细了解了下二叉树的相关算法，原因是看了唐boy的一篇博客(你会翻转二叉树吗?)，还有一篇关于百度的校招，深刻体会到二叉树的重要性。于是乎，从网上收集并整理了一些关于二叉树的资料，及相关算法的实现（主要是Objective-C的，但是算法思想是相通的），以便以后复习时查阅。">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Jenko" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Jenko" title="Jenko"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Jenko">Jenko</a></h1>
+				<h2 class="blog-motto">--The world not death,death to surrender.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/28/Twotrees/" title="You need to know" itemprop="url">You need to know</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-10-28T12:39:15.000Z" itemprop="datePublished"> 发表于 2015-10-28</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是二叉树"><span class="toc-number">1.</span> <span class="toc-text">什么是二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是二叉排序树"><span class="toc-number">2.</span> <span class="toc-text">什么是二叉排序树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树节点定义"><span class="toc-number">3.</span> <span class="toc-text">二叉树节点定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建二叉排序树"><span class="toc-number">4.</span> <span class="toc-text">创建二叉排序树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树中某个位置的节点"><span class="toc-number">5.</span> <span class="toc-text">二叉树中某个位置的节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#先序遍历"><span class="toc-number">6.</span> <span class="toc-text">先序遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中序遍历"><span class="toc-number">7.</span> <span class="toc-text">中序遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后序遍历"><span class="toc-number">8.</span> <span class="toc-text">后序遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#层次遍历"><span class="toc-number">9.</span> <span class="toc-text">层次遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树的深度"><span class="toc-number">10.</span> <span class="toc-text">二叉树的深度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树的所有节点数"><span class="toc-number">11.</span> <span class="toc-text">二叉树的所有节点数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树某曾中的节点数"><span class="toc-number">12.</span> <span class="toc-text">二叉树某曾中的节点数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树叶子节点数"><span class="toc-number">13.</span> <span class="toc-text">二叉树叶子节点数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树最大距离（二叉树的直径）"><span class="toc-number">14.</span> <span class="toc-text">二叉树最大距离（二叉树的直径）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树中某个节点到根节点的路径"><span class="toc-number">15.</span> <span class="toc-text">二叉树中某个节点到根节点的路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树中两个节点最近的公共父节点"><span class="toc-number">16.</span> <span class="toc-text">二叉树中两个节点最近的公共父节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树中两个节点之间的路径"><span class="toc-number">17.</span> <span class="toc-text">二叉树中两个节点之间的路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树两个节点之间的距离"><span class="toc-number">18.</span> <span class="toc-text">二叉树两个节点之间的距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#翻转二叉树"><span class="toc-number">19.</span> <span class="toc-text">翻转二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断二叉树是否完全二叉树"><span class="toc-number">20.</span> <span class="toc-text">判断二叉树是否完全二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断二叉树是否满二叉树"><span class="toc-number">21.</span> <span class="toc-text">判断二叉树是否满二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断二叉树是否平衡二叉树"><span class="toc-number">22.</span> <span class="toc-text">判断二叉树是否平衡二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">23.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<p>这几天详细了解了下二叉树的相关算法，原因是看了唐boy的一篇博客(<a href="http://blog.devtang.com/blog/2015/06/16/talk-about-tech-interview/" target="_blank" rel="external">你会翻转二叉树吗?</a>)，还有一篇关于<a href="http://www.cocoachina.com/programmer/20151015/13687.html" target="_blank" rel="external">百度的校招</a>，深刻体会到二叉树的重要性。于是乎，从网上收集并整理了一些关于二叉树的资料，及相关算法的实现（主要是Objective-C的，但是算法思想是相通的），以便以后复习时查阅。<br><a id="more"></a></p>
+<h2 id="什么是二叉树">什么是二叉树</h2><p>在计算机科学中，二叉树是每个节点最多有两个子树的树结构。通常子树被称作“左子树”和“右子树”，左子树和右子树同时也是二叉树。二叉树的子树有左右之分，并且次序不能任意颠倒。二叉树是递归定义的，所以一般二叉树的相关题目也都可以使用递归的思想来解决，当然也有一些可以使用非递归的思想解决，我下面列出的一些算法有些采用了递归，有些是非递归的。</p>
+<h2 id="什么是二叉排序树">什么是二叉排序树</h2><p>二叉排序树又叫二叉查找树或者二叉搜索树，它首先是一个二叉树，而且必须满足下面的条件：</p>
+<ul>
+<li>若左子树不空，则左子树上所有结点的值均小于它的根节点的值;</li>
+<li>若右子树不空，则右子树上所有结点的值均大于它的根结点的值;</li>
+<li>左、右子树也分别为二叉排序树</li>
+<li>没有键值相等的节点（？可能是因为不好处理键值相等的节点到底是左节点还是右节点吧）</li>
+</ul>
+<p>概念就介绍这么多，都是来自网上，下面主要看算法和具体实现代码。</p>
+<h2 id="二叉树节点定义">二叉树节点定义</h2><p>采用单项链表的形式，只从根节点指向孩子节点，不保存父节点。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树节点</span><br><span class="line"> */</span></span><br><span class="line"><span class="variable">@interface</span> <span class="attribute">BinaryTreeNode </span>: NSObject</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  值</span><br><span class="line"> */</span></span><br><span class="line"><span class="variable">@property</span> (nonatomic, assign) NSInteger value;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  左节点</span><br><span class="line"> */</span></span><br><span class="line"><span class="variable">@property</span> (nonatomic, strong) BinaryTreeNode *leftNode;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  右节点</span><br><span class="line"> */</span></span><br><span class="line"><span class="variable">@property</span> (nonatomic, strong) BinaryTreeNode *rightNode;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
+<h2 id="创建二叉排序树">创建二叉排序树</h2><p>二叉树中左右节点值本身没有大小之分，所以如果要创建二叉树，就需要考虑如何处理某个节点是左节点还是右节点，如何终止某个子树而切换到另一个子树。 因此我选择了二叉排序树，二叉排序树中对于左右节点有明确的要求，程序可以自动根据键值大小自动选择是左节点还是右节点。</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  创建二叉排序树</span><br><span class="line"> *  二叉排序树：左节点值全部小于根节点值，右节点值全部大于根节点值</span><br><span class="line"> *</span><br><span class="line"> *  @param values 数组</span><br><span class="line"> *</span><br><span class="line"> *  @return 二叉树根节点</span><br><span class="line"> */</span></span><br><span class="line">+ (BinaryTreeNode *)createTreeWithValues:(NSArray *)values &#123;</span><br><span class="line">    </span><br><span class="line">    BinaryTreeNode *root = nil;</span><br><span class="line">    <span class="keyword">for</span> (NSInteger i=<span class="number">0</span>; i&lt;values.count; i++) &#123;</span><br><span class="line">        NSInteger <span class="keyword">value</span> = [(NSNumber *)[values objectAtIndex:i] integerValue];</span><br><span class="line">        root = [BinaryTree addTreeNode:root <span class="keyword">value</span>:<span class="keyword">value</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  向二叉排序树节点添加一个节点</span><br><span class="line"> *</span><br><span class="line"> *  @param treeNode 根节点</span><br><span class="line"> *  @param value    值</span><br><span class="line"> *</span><br><span class="line"> *  @return 根节点</span><br><span class="line"> */</span></span><br><span class="line">+ (BinaryTreeNode *)addTreeNode:(BinaryTreeNode *)treeNode <span class="keyword">value</span>:(NSInteger)<span class="keyword">value</span> &#123;</span><br><span class="line">    <span class="comment">//根节点不存在，创建节点</span></span><br><span class="line">    <span class="keyword">if</span> (!treeNode) &#123;</span><br><span class="line">        treeNode = [BinaryTreeNode <span class="keyword">new</span>];</span><br><span class="line">        treeNode.<span class="keyword">value</span> = <span class="keyword">value</span>;</span><br><span class="line">        NSLog(@<span class="string">"node:%@"</span>, @(<span class="keyword">value</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">value</span> &lt;= treeNode.<span class="keyword">value</span>) &#123;</span><br><span class="line">        NSLog(@<span class="string">"to left"</span>);</span><br><span class="line">        <span class="comment">//值小于根节点，则插入到左子树</span></span><br><span class="line">        treeNode.leftNode = [BinaryTree addTreeNode:treeNode.leftNode <span class="keyword">value</span>:<span class="keyword">value</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        NSLog(@<span class="string">"to right"</span>);</span><br><span class="line">        <span class="comment">//值大于根节点，则插入到右子树</span></span><br><span class="line">        treeNode.rightNode = [BinaryTree addTreeNode:treeNode.rightNode <span class="keyword">value</span>:<span class="keyword">value</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> treeNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树中某个位置的节点">二叉树中某个位置的节点</h2><p>类似索引操作，按层次遍历，位置从0开始算。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树中某个位置的节点（按层次遍历）</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> index    按层次遍历树时的位置(从0开始算)</span><br><span class="line"> *  <span class="doctag">@param</span> rootNode 树根节点</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@return</span> 节点</span><br><span class="line"> */</span></span><br><span class="line">+ (BinaryTreeNode *)<span class="string">treeNodeAtIndex:</span>(NSInteger)index <span class="string">inTree:</span>(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="comment">//按层次遍历</span></span><br><span class="line">    <span class="keyword">if</span> (!rootNode || index &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> nil;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    NSMutableArray *queueArray = [NSMutableArray array]; <span class="comment">//数组当成队列</span></span><br><span class="line">    [queueArray <span class="string">addObject:</span>rootNode]; <span class="comment">//压入根节点</span></span><br><span class="line">    <span class="keyword">while</span> (queueArray.count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        BinaryTreeNode *node = [queueArray firstObject];</span><br><span class="line">        <span class="keyword">if</span> (index == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        &#125;</span><br><span class="line">        [queueArray <span class="string">removeObjectAtIndex:</span><span class="number">0</span>]; <span class="comment">//弹出最前面的节点，仿照队列先进先出原则</span></span><br><span class="line">        index--; <span class="comment">//移除节点，index减少</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (node.leftNode) &#123;</span><br><span class="line">            [queueArray <span class="string">addObject:</span>node.leftNode]; <span class="comment">//压入左节点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node.rightNode) &#123;</span><br><span class="line">            [queueArray <span class="string">addObject:</span>node.rightNode]; <span class="comment">//压入右节点</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//层次遍历完，仍然没有找到位置，返回nil</span></span><br><span class="line">    <span class="keyword">return</span> nil;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="先序遍历">先序遍历</h2><p>先访问根，再遍历左子树，再遍历右子树。典型的递归思想。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  先序遍历</span><br><span class="line"> *  先访问根，再遍历左子树，再遍历右子树</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> rootNode 根节点</span><br><span class="line"> *  <span class="doctag">@param</span> handler  访问节点处理函数</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="typename">void</span>)<span class="string">preOrderTraverseTree:</span>(BinaryTreeNode *)rootNode <span class="string">handler:</span>(<span class="typename">void</span>(^)(BinaryTreeNode *treeNode))handler &#123;</span><br><span class="line">    <span class="keyword">if</span> (rootNode) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (handler) &#123;</span><br><span class="line">            handler(rootNode);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        [self <span class="string">preOrderTraverseTree:</span>rootNode.leftNode <span class="string">handler:</span>handler];</span><br><span class="line">        [self <span class="string">preOrderTraverseTree:</span>rootNode.rightNode <span class="string">handler:</span>handler];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">复制代码</span><br><span class="line"></span><br><span class="line">调用方法如下：（用到了block）</span><br><span class="line"></span><br><span class="line">NSMutableArray *orderArray = [NSMutableArray array];</span><br><span class="line">[BinaryTree <span class="string">preOrderTraverseTree:</span>root <span class="string">handler:</span>^(BinaryTreeNode *treeNode) &#123;</span><br><span class="line">     [orderArray <span class="string">addObject:</span>@(treeNode.value)];</span><br><span class="line">&#125;];</span><br><span class="line">NSLog(@<span class="string">"先序遍历结果：%@"</span>, [orderArray <span class="string">componentsJoinedByString:</span>@<span class="string">","</span>]);</span><br></pre></td></tr></table></figure>
+<h2 id="中序遍历">中序遍历</h2><p>先遍历左子树，再访问根，再遍历右子树。</p>
+<p>对于二叉排序树来说，中序遍历得到的序列是一个从小到大排序好的序列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  中序遍历</span><br><span class="line"> *  先遍历左子树，再访问根，再遍历右子树</span><br><span class="line"> *</span><br><span class="line"> *  @param rootNode 根节点</span><br><span class="line"> *  @param handler  访问节点处理函数</span><br><span class="line"> */</span></span><br><span class="line">+ (void)inOrderTraverseTree:(BinaryTreeNode *)rootNode <span class="operator"><span class="keyword">handler</span>:(<span class="built_in">void</span>(^)(BinaryTreeNode *treeNode))<span class="keyword">handler</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (rootNode) &#123;</span><br><span class="line">        [<span class="keyword">self</span> inOrderTraverseTree:rootNode.leftNode <span class="keyword">handler</span>:<span class="keyword">handler</span>];</span></span><br><span class="line">        </span><br><span class="line">        if (<span class="operator"><span class="keyword">handler</span>) &#123;</span><br><span class="line">            <span class="keyword">handler</span>(rootNode);</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        [self inOrderTraverseTree:rootNode.rightNode <span class="operator"><span class="keyword">handler</span>:<span class="keyword">handler</span>];</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="后序遍历">后序遍历</h2><p>先遍历左子树，再遍历右子树，再访问根</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  后序遍历</span><br><span class="line"> *  先遍历左子树，再遍历右子树，再访问根</span><br><span class="line"> *</span><br><span class="line"> *  @param rootNode 根节点</span><br><span class="line"> *  @param handler  访问节点处理函数</span><br><span class="line"> */</span></span><br><span class="line">+ (void)postOrderTraverseTree:(BinaryTreeNode *)rootNode <span class="operator"><span class="keyword">handler</span>:(<span class="built_in">void</span>(^)(BinaryTreeNode *treeNode))<span class="keyword">handler</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (rootNode) &#123;</span><br><span class="line">        [<span class="keyword">self</span> postOrderTraverseTree:rootNode.leftNode <span class="keyword">handler</span>:<span class="keyword">handler</span>];</span></span><br><span class="line">        [self postOrderTraverseTree:rootNode.rightNode <span class="operator"><span class="keyword">handler</span>:<span class="keyword">handler</span>];</span></span><br><span class="line">        </span><br><span class="line">        if (<span class="operator"><span class="keyword">handler</span>) &#123;</span><br><span class="line">            <span class="keyword">handler</span>(rootNode);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="层次遍历">层次遍历</h2><p>按照从上到下、从左到右的次序进行遍历。先遍历完一层，再遍历下一层，因此又叫广度优先遍历。需要用到队列，在OC里可以用可变数组来实现。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  层次遍历（广度优先）</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> rootNode 二叉树根节点</span><br><span class="line"> *  <span class="doctag">@param</span> handler  访问节点处理函数</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="typename">void</span>)<span class="string">levelTraverseTree:</span>(BinaryTreeNode *)rootNode <span class="string">handler:</span>(<span class="typename">void</span>(^)(BinaryTreeNode *treeNode))handler &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    NSMutableArray *queueArray = [NSMutableArray array]; <span class="comment">//数组当成队列</span></span><br><span class="line">    [queueArray <span class="string">addObject:</span>rootNode]; <span class="comment">//压入根节点</span></span><br><span class="line">    <span class="keyword">while</span> (queueArray.count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        BinaryTreeNode *node = [queueArray firstObject];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (handler) &#123;</span><br><span class="line">            handler(node);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        [queueArray <span class="string">removeObjectAtIndex:</span><span class="number">0</span>]; <span class="comment">//弹出最前面的节点，仿照队列先进先出原则</span></span><br><span class="line">        <span class="keyword">if</span> (node.leftNode) &#123;</span><br><span class="line">            [queueArray <span class="string">addObject:</span>node.leftNode]; <span class="comment">//压入左节点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node.rightNode) &#123;</span><br><span class="line">            [queueArray <span class="string">addObject:</span>node.rightNode]; <span class="comment">//压入右节点</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树的深度">二叉树的深度</h2><p>二叉树的宽度定义为各层节点数的最大值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树的宽度</span><br><span class="line"> *</span><br><span class="line"> *  @param rootNode 二叉树根节点</span><br><span class="line"> *</span><br><span class="line"> *  @return 二叉树宽度</span><br><span class="line"> */</span></span><br><span class="line">+ (NSInteger)widthOfTree:(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    NSMutableArray *queueArray = [NSMutableArray <span class="built_in">array</span>]; <span class="comment">//数组当成队列</span></span><br><span class="line">    [queueArray addObject:rootNode]; <span class="comment">//压入根节点</span></span><br><span class="line">    NSInteger maxWidth = <span class="number">1</span>; <span class="comment">//最大的宽度，初始化为1（因为已经有根节点）</span></span><br><span class="line">    NSInteger curWidth = <span class="number">0</span>; <span class="comment">//当前层的宽度</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (queueArray.count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        curWidth = queueArray.count;</span><br><span class="line">        <span class="comment">//依次弹出当前层的节点</span></span><br><span class="line">        <span class="keyword">for</span> (NSInteger i=<span class="number">0</span>; i&lt;curWidth; i++) &#123;</span><br><span class="line">            BinaryTreeNode *node = [queueArray firstObject];</span><br><span class="line">            [queueArray removeObjectAtIndex:<span class="number">0</span>]; <span class="comment">//弹出最前面的节点，仿照队列先进先出原则</span></span><br><span class="line">            <span class="comment">//压入子节点</span></span><br><span class="line">            <span class="keyword">if</span> (node.leftNode) &#123;</span><br><span class="line">                [queueArray addObject:node.leftNode];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (node.rightNode) &#123;</span><br><span class="line">                [queueArray addObject:node.rightNode];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//宽度 = 当前层节点数</span></span><br><span class="line">        maxWidth = MAX(maxWidth, queueArray.count);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> maxWidth;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树的所有节点数">二叉树的所有节点数</h2><p>递归思想：二叉树所有节点数=左子树节点数+右子树节点数+1</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span>  二叉树的所有节点数</span><br><span class="line"> <span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span>  <span class="comment">@param rootNode 根节点</span></span><br><span class="line"> <span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span>  <span class="comment">@return 所有节点数</span></span><br><span class="line"> <span class="keyword">*</span>/</span><br><span class="line">+ (NSInteger)numberOfNodesInTree:(BinaryTreeNode <span class="keyword">*</span>)rootNode &#123;</span><br><span class="line">    if (!rootNode) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    //节点数=左子树节点数+右子树节点数+1（根节点）</span><br><span class="line">    return [self numberOfNodesInTree:rootNode.leftNode] + [self numberOfNodesInTree:rootNode.rightNode] + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树某曾中的节点数">二叉树某曾中的节点数</h2><p>1）根节点为空，则节点数为0；</p>
+<p>2）层为1，则节点数为1（即根节点）</p>
+<p>3）递归思想：二叉树第k层节点数=左子树第k-1层节点数+右子树第k-1层节点数</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树某层中的节点数</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> level    层</span><br><span class="line"> *  <span class="doctag">@param</span> rootNode 根节点</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@return</span> 层中的节点数</span><br><span class="line"> */</span></span><br><span class="line">+ (NSInteger)<span class="string">numberOfNodesOnLevel:</span>(NSInteger)level <span class="string">inTree:</span>(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode || level &lt; <span class="number">1</span>) &#123; <span class="comment">//根节点不存在或者level&lt;0</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (level == <span class="number">1</span>) &#123; <span class="comment">//level=1，返回1（根节点）</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//递归：level层节点数 = 左子树level-1层节点数+右子树level-1层节点数</span></span><br><span class="line">    <span class="keyword">return</span> [self <span class="string">numberOfNodesOnLevel:</span>level-<span class="number">1</span> <span class="string">inTree:</span>rootNode.leftNode] + [self <span class="string">numberOfNodesOnLevel:</span>level-<span class="number">1</span> <span class="string">inTree:</span>rootNode.rightNode];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树叶子节点数">二叉树叶子节点数</h2><p>叶子节点，又叫终端节点，是左右子树都是空的节点。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树叶子节点数</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> rootNode 根节点</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@return</span> 叶子节点数</span><br><span class="line"> */</span></span><br><span class="line">+ (NSInteger)<span class="string">numberOfLeafsInTree:</span>(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//左子树和右子树都是空，说明是叶子节点</span></span><br><span class="line">    <span class="keyword">if</span> (!rootNode.leftNode &amp;&amp; !rootNode.rightNode) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//递归：叶子数 = 左子树叶子数 + 右子树叶子数</span></span><br><span class="line">    <span class="keyword">return</span> [self <span class="string">numberOfLeafsInTree:</span>rootNode.leftNode] + [self <span class="string">numberOfLeafsInTree:</span>rootNode.rightNode];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树最大距离（二叉树的直径）">二叉树最大距离（二叉树的直径）</h2><p>二叉树中任意两个节点都有且仅有一条路径，这个路径的长度叫这两个节点的距离。二叉树中所有节点之间的距离的最大值就是二叉树的直径。</p>
+<p>有一种解法，把这个最大距离划分了3种情况：</p>
+<p>1）这2个节点分别在根节点的左子树和右子树上，他们之间的路径肯定经过根节点，而且他们肯定是根节点左右子树上最远的叶子节点（他们到根节点的距离=左右子树的深度）。</p>
+<p>2）这2个节点都在左子树上</p>
+<p>3）这2个节点都在右子树上</p>
+<p>综上，只要取这3种情况中的最大值，就是二叉树的直径。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树最大距离（直径）</span><br><span class="line"> *</span><br><span class="line"> *  @param rootNode 根节点</span><br><span class="line"> *</span><br><span class="line"> *  @return 最大距离</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">NSInteger</span>)maxDistanceOfTree:(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    方案一：（递归次数较多，效率较低）</span></span><br><span class="line">    <span class="comment">//分3种情况：</span></span><br><span class="line">    <span class="comment">//1、最远距离经过根节点：距离 = 左子树深度 + 右子树深度</span></span><br><span class="line">    <span class="built_in">NSInteger</span> distance = [<span class="keyword">self</span> depthOfTree:rootNode<span class="variable">.leftNode</span>] + [<span class="keyword">self</span> depthOfTree:rootNode<span class="variable">.rightNode</span>];</span><br><span class="line">    <span class="comment">//2、最远距离在根节点左子树上，即计算左子树最远距离</span></span><br><span class="line">    <span class="built_in">NSInteger</span> disLeft = [<span class="keyword">self</span> maxDistanceOfTree:rootNode<span class="variable">.leftNode</span>];</span><br><span class="line">    <span class="comment">//3、最远距离在根节点右子树上，即计算右子树最远距离</span></span><br><span class="line">    <span class="built_in">NSInteger</span> disRight = [<span class="keyword">self</span> maxDistanceOfTree:rootNode<span class="variable">.rightNode</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> MAX(MAX(disLeft, disRight), distance);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方案效率较低，因为计算子树的深度和最远距离是分开递归的，存在重复递归遍历的情况。其实一次递归，就可以分别计算出深度和最远距离，于是有了第二种方案：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树最大距离（直径）</span><br><span class="line"> *</span><br><span class="line"> *  @param rootNode 根节点</span><br><span class="line"> *</span><br><span class="line"> *  @return 最大距离</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="type">NSInteger</span>)maxDistanceOfTree:(<span class="type">BinaryTreeNode</span> *)rootNode &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    方案2：将计算节点深度和最大距离放到一次递归中计算，方案一是分别单独递归计算深度和最远距离</span></span><br><span class="line">    <span class="type">TreeNodeProperty</span> *p = [<span class="keyword">self</span> propertyOfTreeNode:rootNode];</span><br><span class="line">    <span class="keyword">return</span> p.<span class="built_in">distance</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  计算树节点的最大深度和最大距离</span><br><span class="line"> *</span><br><span class="line"> *  @param rootNode 根节点</span><br><span class="line"> *</span><br><span class="line"> *  @return TreeNodeProperty</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="type">TreeNodeProperty</span> *)propertyOfTreeNode:(<span class="type">BinaryTreeNode</span> *)rootNode &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!rootNode) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="type">TreeNodeProperty</span> *<span class="keyword">left</span> = [<span class="keyword">self</span> propertyOfTreeNode:rootNode.leftNode];</span><br><span class="line">    <span class="type">TreeNodeProperty</span> *<span class="keyword">right</span> = [<span class="keyword">self</span> propertyOfTreeNode:rootNode.rightNode];</span><br><span class="line">    <span class="type">TreeNodeProperty</span> *p = [<span class="type">TreeNodeProperty</span> <span class="keyword">new</span>];</span><br><span class="line">    <span class="comment">//节点的深度depth = 左子树深度、右子树深度中最大值+1（+1是因为根节点占了1个depth）</span></span><br><span class="line">    p.depth = <span class="type">MAX</span>(<span class="keyword">left</span>.depth, <span class="keyword">right</span>.depth) + <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//最远距离 = 左子树最远距离、右子树最远距离和横跨左右子树最远距离中最大值</span></span><br><span class="line">    p.<span class="built_in">distance</span> = <span class="type">MAX</span>(<span class="type">MAX</span>(<span class="keyword">left</span>.<span class="built_in">distance</span>, <span class="keyword">right</span>.<span class="built_in">distance</span>), <span class="keyword">left</span>.depth+<span class="keyword">right</span>.depth);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树中某个节点到根节点的路径">二叉树中某个节点到根节点的路径</h2><p>既是寻路问题，又是查找节点问题。</p>
+<p>定义一个存放路径的栈（不是队列了，但是还是用可变数组来实现的）</p>
+<p>1）压入根节点，再从左子树中查找（递归进行的），如果未找到，再从右子树中查找，如果也未找到，则弹出根节点，再遍历栈中上一个节点。</p>
+<p>2）如果找到，则栈中存放的节点就是路径所经过的节点。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树中某个节点到根节点的路径</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> treeNode 节点</span><br><span class="line"> *  <span class="doctag">@param</span> rootNode 根节点</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@return</span> 存放路径节点的数组</span><br><span class="line"> */</span></span><br><span class="line">+ (NSArray *)<span class="string">pathOfTreeNode:</span>(BinaryTreeNode *)treeNode <span class="string">inTree:</span>(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    NSMutableArray *pathArray = [NSMutableArray array];</span><br><span class="line">    [self <span class="string">isFoundTreeNode:</span>treeNode <span class="string">inTree:</span>rootNode <span class="string">routePath:</span>pathArray];</span><br><span class="line">    <span class="keyword">return</span> pathArray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  查找某个节点是否在树中</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> treeNode 待查找的节点</span><br><span class="line"> *  <span class="doctag">@param</span> rootNode 根节点</span><br><span class="line"> *  <span class="doctag">@param</span> path  根节点到待查找节点的路径</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@return</span> YES：找到，NO：未找到</span><br><span class="line"> */</span></span><br><span class="line">+ (BOOL)<span class="string">isFoundTreeNode:</span>(BinaryTreeNode *)treeNode <span class="string">inTree:</span>(BinaryTreeNode *)rootNode <span class="string">routePath:</span>(NSMutableArray *)path &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!rootNode || !treeNode) &#123;</span><br><span class="line">        <span class="keyword">return</span> NO;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//找到节点</span></span><br><span class="line">    <span class="keyword">if</span> (rootNode == treeNode) &#123;</span><br><span class="line">        [path <span class="string">addObject:</span>rootNode];</span><br><span class="line">        <span class="keyword">return</span> YES;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//压入根节点，进行递归</span></span><br><span class="line">    [path <span class="string">addObject:</span>rootNode];</span><br><span class="line">    <span class="comment">//先从左子树中查找</span></span><br><span class="line">    BOOL find = [self <span class="string">isFoundTreeNode:</span>treeNode <span class="string">inTree:</span>rootNode.leftNode <span class="string">routePath:</span>path];</span><br><span class="line">    <span class="comment">//未找到，再从右子树查找</span></span><br><span class="line">    <span class="keyword">if</span> (!find) &#123;</span><br><span class="line">        find = [self <span class="string">isFoundTreeNode:</span>treeNode <span class="string">inTree:</span>rootNode.rightNode <span class="string">routePath:</span>path];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果2边都没查找到，则弹出此根节点</span></span><br><span class="line">    <span class="keyword">if</span> (!find) &#123;</span><br><span class="line">        [path removeLastObject];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> find;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树中两个节点最近的公共父节点">二叉树中两个节点最近的公共父节点</h2><p>首先需要明白，根节点肯定是二叉树中任意两个节点的公共父节点（不一定是最近的），因此二叉树中2个节点的最近公共父节点一定在从根节点到这个节点的路径上。因此我们可以先分别找到从根节点到这2个节点的路径，再从这两个路径中找到最近的公共父节点。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树中两个节点最近的公共父节点</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> nodeA    第一个节点</span><br><span class="line"> *  <span class="doctag">@param</span> nodeB    第二个节点</span><br><span class="line"> *  <span class="doctag">@param</span> rootNode 二叉树根节点</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@return</span> 最近的公共父节点</span><br><span class="line"> */</span></span><br><span class="line">+ (BinaryTreeNode *)<span class="string">parentOfNode:</span>(BinaryTreeNode *)nodeA <span class="string">andNode:</span>(BinaryTreeNode *)nodeB <span class="string">inTree:</span>(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode || !nodeA || !nodeB) &#123;</span><br><span class="line">        <span class="keyword">return</span> nil;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (nodeA == nodeB) &#123;</span><br><span class="line">        <span class="keyword">return</span> nodeA;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//从根节点到节点A的路径</span></span><br><span class="line">    NSArray *pathA = [self <span class="string">pathOfTreeNode:</span>nodeA <span class="string">inTree:</span>rootNode];</span><br><span class="line">    <span class="comment">//从根节点到节点B的路径</span></span><br><span class="line">    NSArray *pathB = [self <span class="string">pathOfTreeNode:</span>nodeB <span class="string">inTree:</span>rootNode];</span><br><span class="line">    <span class="comment">//其中一个节点不在树中，则没有公共父节点</span></span><br><span class="line">    <span class="keyword">if</span> (pathA.count == <span class="number">0</span> || pathB == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> nil;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//从后往前推，查找第一个出现的公共节点</span></span><br><span class="line">    <span class="keyword">for</span> (NSInteger i = pathA.count-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (NSInteger j = pathB.count - <span class="number">1</span>; j&gt;=<span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> ([pathA <span class="string">objectAtIndex:</span>i] == [pathB <span class="string">objectAtIndex:</span>j]) &#123;</span><br><span class="line">                <span class="comment">//找到</span></span><br><span class="line">                <span class="keyword">return</span> [pathA <span class="string">objectAtIndex:</span>i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nil;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树中两个节点之间的路径">二叉树中两个节点之间的路径</h2><p>从查找最近公共父节点衍生出来的。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树中两个节点之间的路径</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> nodeA    第一个节点</span><br><span class="line"> *  <span class="doctag">@param</span> nodeB    第二个节点</span><br><span class="line"> *  <span class="doctag">@param</span> rootNode 二叉树根节点</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@return</span> 两个节点间的路径</span><br><span class="line"> */</span></span><br><span class="line">+ (NSArray *)<span class="string">pathFromNode:</span>(BinaryTreeNode *)nodeA <span class="string">toNode:</span>(BinaryTreeNode *)nodeB <span class="string">inTree:</span>(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode || !nodeA || !nodeB) &#123;</span><br><span class="line">        <span class="keyword">return</span> nil;</span><br><span class="line">    &#125;</span><br><span class="line">    NSMutableArray *path = [NSMutableArray array];</span><br><span class="line">    <span class="keyword">if</span> (nodeA == nodeB) &#123;</span><br><span class="line">        [path <span class="string">addObject:</span>nodeA];</span><br><span class="line">        [path <span class="string">addObject:</span>nodeB];</span><br><span class="line">        <span class="keyword">return</span> path;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//从根节点到节点A的路径</span></span><br><span class="line">    NSArray *pathA = [self <span class="string">pathOfTreeNode:</span>nodeA <span class="string">inTree:</span>rootNode];</span><br><span class="line">    <span class="comment">//从根节点到节点B的路径</span></span><br><span class="line">    NSArray *pathB = [self <span class="string">pathOfTreeNode:</span>nodeB <span class="string">inTree:</span>rootNode];</span><br><span class="line">    <span class="comment">//其中一个节点不在树中，则没有路径</span></span><br><span class="line">    <span class="keyword">if</span> (pathA.count == <span class="number">0</span> || pathB == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> nil;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//从后往前推，查找第一个出现的公共节点</span></span><br><span class="line">    <span class="keyword">for</span> (NSInteger i = pathA.count-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">        [path <span class="string">addObject:</span>[pathA <span class="string">objectAtIndex:</span>i]];</span><br><span class="line">        <span class="keyword">for</span> (NSInteger j = pathB.count - <span class="number">1</span>; j&gt;=<span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="comment">//找到公共父节点，则将pathB中后面的节点压入path</span></span><br><span class="line">            <span class="keyword">if</span> ([pathA <span class="string">objectAtIndex:</span>i] == [pathB <span class="string">objectAtIndex:</span>j]) &#123;</span><br><span class="line">                j++; <span class="comment">//j++是为了避开公共父节点</span></span><br><span class="line">                <span class="keyword">while</span> (j&lt;pathB.count) &#123;</span><br><span class="line">                    [path <span class="string">addObject:</span>[pathB <span class="string">objectAtIndex:</span>j]];</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">return</span> path;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nil;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树两个节点之间的距离">二叉树两个节点之间的距离</h2><p>可以从两个节点之间的路径衍生出来。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  二叉树两个节点之间的距离</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> nodeA    第一个节点</span><br><span class="line"> *  <span class="doctag">@param</span> nodeB    第二个节点</span><br><span class="line"> *  <span class="doctag">@param</span> rootNode 二叉树根节点</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@return</span> 两个节点间的距离（-1：表示没有找到路径）</span><br><span class="line"> */</span></span><br><span class="line">+ (NSInteger)<span class="string">distanceFromNode:</span>(BinaryTreeNode *)nodeA <span class="string">toNode:</span>(BinaryTreeNode *)nodeB <span class="string">inTree:</span>(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode || !nodeA || !nodeB) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (nodeA == nodeB) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//从根节点到节点A的路径</span></span><br><span class="line">    NSArray *pathA = [self <span class="string">pathOfTreeNode:</span>nodeA <span class="string">inTree:</span>rootNode];</span><br><span class="line">    <span class="comment">//从根节点到节点B的路径</span></span><br><span class="line">    NSArray *pathB = [self <span class="string">pathOfTreeNode:</span>nodeB <span class="string">inTree:</span>rootNode];</span><br><span class="line">    <span class="comment">//其中一个节点不在树中，则没有路径</span></span><br><span class="line">    <span class="keyword">if</span> (pathA.count == <span class="number">0</span> || pathB == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//从后往前推，查找第一个出现的公共节点</span></span><br><span class="line">    <span class="keyword">for</span> (NSInteger i = pathA.count-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (NSInteger j = pathB.count - <span class="number">1</span>; j&gt;=<span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="comment">//找到公共父节点</span></span><br><span class="line">            <span class="keyword">if</span> ([pathA <span class="string">objectAtIndex:</span>i] == [pathB <span class="string">objectAtIndex:</span>j]) &#123;</span><br><span class="line">                <span class="comment">//距离=路径节点数-1 （这里要-2，因为公共父节点重复了一次）</span></span><br><span class="line">                <span class="keyword">return</span> (pathA.count - i) + (pathB.count - j) - <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="翻转二叉树">翻转二叉树</h2><p>你会翻转二叉树吗？如果不会，那对不起，我们不会录用你！</p>
+<p>翻转二叉树，又叫求二叉树的镜像，就是把二叉树的左右子树对调（当然是递归的）</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span>  翻转二叉树（又叫：二叉树的镜像）</span><br><span class="line"> <span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span>  <span class="comment">@param rootNode 根节点</span></span><br><span class="line"> <span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span>  <span class="comment">@return 翻转后的树根节点（其实就是原二叉树的根节点）</span></span><br><span class="line"> <span class="keyword">*</span>/</span><br><span class="line">+ (BinaryTreeNode <span class="keyword">*</span>)invertBinaryTree:(BinaryTreeNode <span class="keyword">*</span>)rootNode &#123;</span><br><span class="line">    if (!rootNode) &#123;</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!rootNode.leftNode &amp;&amp; !rootNode.rightNode) &#123;</span><br><span class="line">        return rootNode;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    [self invertBinaryTree:rootNode.leftNode];</span><br><span class="line">    [self invertBinaryTree:rootNode.rightNode];</span><br><span class="line">    </span><br><span class="line">    BinaryTreeNode <span class="keyword">*</span>tempNode = rootNode.leftNode;</span><br><span class="line">    rootNode.leftNode = rootNode.rightNode;</span><br><span class="line">    rootNode.rightNode = tempNode;</span><br><span class="line">    </span><br><span class="line">    return rootNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="判断二叉树是否完全二叉树">判断二叉树是否完全二叉树</h2><p>完全二叉树定义为：若设二叉树的高度为h，除第h层外，其它各层的结点数都达到最大个数，第h层有叶子结点，并且叶子结点都是从左到右依次排布。</p>
+<p>完全二叉树必须满足2个条件：</p>
+<p>1）如果某个节点的右子树不为空，则它的左子树必须不为空</p>
+<p>2）如果某个节点的右子树为空，则排在它后面的节点必须没有孩子节点</p>
+<p>这里还需要理解“排在它后面的节点”，回头看看层次遍历算法，我们就能知道在层次遍历时，是从上到下从左到右遍历的，先将根节点弹出队列，再压入孩子节点，因此“排在它后面的节点”有2种情况：</p>
+<p>1）同层次的后面的节点</p>
+<p>2）同层次的前面的节点的孩子节点（因为遍历前面的节点时，会弹出节点，同时将孩子节点压入队列）</p>
+<p>通过上面的分析，我们可以设置一个标志位flag，当子树满足完全二叉树时，设置flag=YES。当flag=YES而节点又破坏了完全二叉树的条件，那么它就不是完全二叉树。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  是否完全二叉树</span><br><span class="line"> *  完全二叉树：若设二叉树的高度为h，除第h层外，其它各层的结点数都达到最大个数，第h层有叶子结点，并且叶子结点都是从左到右依次排布</span><br><span class="line"> *</span><br><span class="line"> *  @param rootNode 根节点</span><br><span class="line"> *</span><br><span class="line"> *  @return YES：是完全二叉树，NO：不是完全二叉树</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)isCompleteBinaryTree:(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//左子树和右子树都是空，则是完全二叉树</span></span><br><span class="line">    <span class="keyword">if</span> (!rootNode<span class="variable">.leftNode</span> &amp;&amp; !rootNode<span class="variable">.rightNode</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//左子树是空，右子树不是空，则不是完全二叉树</span></span><br><span class="line">    <span class="keyword">if</span> (!rootNode<span class="variable">.leftNode</span> &amp;&amp; rootNode<span class="variable">.rightNode</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//按层次遍历节点，找到满足完全二叉树的条件：</span></span><br><span class="line">    <span class="comment">//条件1：如果某个节点的右子树不为空，则它的左子树必须不为空</span></span><br><span class="line">    <span class="comment">//条件2：如果某个节点的右子树为空，则排在它后面的节点必须没有孩子节点</span></span><br><span class="line">    <span class="comment">//排在该节点后面的节点有2种：1）同层次的后面的节点 2）同层次的前面的节点的孩子节点（因为遍历前面的节点的时候，会将节点从队列里pop，同时把它的孩子节点push到队列里）</span></span><br><span class="line">    <span class="built_in">NSMutableArray</span> *queue = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    [queue addObject:rootNode];</span><br><span class="line">    <span class="built_in">BOOL</span> isComplete = <span class="literal">NO</span>; <span class="comment">//是否已经满足完全二叉树</span></span><br><span class="line">    <span class="keyword">while</span> (queue<span class="variable">.count</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        BinaryTreeNode *node = [queue firstObject];</span><br><span class="line">        [queue removeObjectAtIndex:<span class="number">0</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//左子树为空且右子树不为空，则不是完全二叉树</span></span><br><span class="line">        <span class="keyword">if</span> (!node<span class="variable">.leftNode</span> &amp;&amp; node<span class="variable">.rightNode</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (isComplete &amp;&amp; (node<span class="variable">.leftNode</span> || node<span class="variable">.rightNode</span>)) &#123;</span><br><span class="line">            <span class="comment">//前面的节点已满足完全二叉树,如果还有孩子节点，则不是完全二叉树</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//右子树为空，则已经满足完全二叉树</span></span><br><span class="line">        <span class="keyword">if</span> (!node<span class="variable">.rightNode</span>) &#123;</span><br><span class="line">            isComplete = <span class="literal">YES</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//压入</span></span><br><span class="line">        <span class="keyword">if</span> (node<span class="variable">.leftNode</span>) &#123;</span><br><span class="line">            [queue addObject:node<span class="variable">.leftNode</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node<span class="variable">.rightNode</span>) &#123;</span><br><span class="line">            [queue addObject:node<span class="variable">.rightNode</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isComplete;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="判断二叉树是否满二叉树">判断二叉树是否满二叉树</h2><p>满二叉树定义为：除了叶结点外每一个结点都有左右子叶且叶子结点都处在最底层的二叉树</p>
+<p> 满二叉树的一个特性是：叶子数=2^(深度-1)，因此我们可以根据这个特性来判断二叉树是否是满二叉树。</p>
+ <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span><br><span class="line"> *  是否满二叉树</span><br><span class="line"> *  满二叉树：除了叶结点外每一个结点都有左右子叶且叶子结点都处在最底层的二叉树</span><br><span class="line"> *</span><br><span class="line"> *  @param rootNode 根节点</span><br><span class="line"> *</span><br><span class="line"> *  @return YES：满二叉树，NO：非满二叉树</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)isFullBinaryTree:(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//二叉树深度</span></span><br><span class="line">    <span class="built_in">NSInteger</span> depth = [<span class="keyword">self</span> depthOfTree:rootNode];</span><br><span class="line">    <span class="comment">//二叉树叶子节点数</span></span><br><span class="line">    <span class="built_in">NSInteger</span> leafNum = [<span class="keyword">self</span> numberOfLeafsInTree:rootNode];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//满二叉树特性：叶子数=2^(深度-1)</span></span><br><span class="line">    <span class="keyword">if</span> (leafNum == pow(<span class="number">2</span>, (depth - <span class="number">1</span>))) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="判断二叉树是否平衡二叉树">判断二叉树是否平衡二叉树</h2><p> 平衡二叉树定义为：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。平衡二叉树又叫AVL树。</p>
+ <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span><br><span class="line"> *  是否平衡二叉树</span><br><span class="line"> *  平衡二叉树：即AVL树，它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树</span><br><span class="line"> *</span><br><span class="line"> *  @param rootNode 根节点</span><br><span class="line"> *</span><br><span class="line"> *  @return YES：平衡二叉树，NO：非平衡二叉树</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)is<span class="built_in">AVLBinaryTree</span>:(BinaryTreeNode *)rootNode &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">NSInteger</span> height;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode) &#123;</span><br><span class="line">        height = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!rootNode<span class="variable">.leftNode</span> &amp;&amp; !rootNode<span class="variable">.rightNode</span>) &#123;</span><br><span class="line">        height = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">BOOL</span> is<span class="built_in">AVLLeft</span> = [<span class="keyword">self</span> is<span class="built_in">AVLBinaryTree</span>:rootNode<span class="variable">.leftNode</span>];</span><br><span class="line">    <span class="built_in">NSInteger</span> heightLeft = height;</span><br><span class="line">    <span class="built_in">BOOL</span> is<span class="built_in">AVLRight</span> = [<span class="keyword">self</span> is<span class="built_in">AVLBinaryTree</span>:rootNode<span class="variable">.rightNode</span>];</span><br><span class="line">    <span class="built_in">NSInteger</span> heightRight = height;</span><br><span class="line">    </span><br><span class="line">    height = MAX(heightLeft, heightRight)+<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (is<span class="built_in">AVLLeft</span> &amp;&amp; is<span class="built_in">AVLRight</span> &amp;&amp; ABS(heightLeft-heightRight) &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2><p> 以上就是我目前整理的一些二叉树相关的算法，算法资料和思想都来源于网络，如有错误，欢迎指正！后续如果有新的算法，我也会更新进去。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/二叉树/">二叉树</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/10/28/Twotrees/" data-title="You need to know | Jenko" data-tsina="3937501007" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/10/31/MVVM/" title="MVVM">
+  <strong>上一篇：</strong><br/>
+  <span>
+  MVVM</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/27/swift1/"  title="Swift基础--UILabel">
+ <strong>下一篇：</strong><br/> 
+ <span>Swift基础--UILabel
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/10/28/Twotrees/" data-title="You need to know" data-url="http://yoursite.com/2015/10/28/Twotrees/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是二叉树"><span class="toc-number">1.</span> <span class="toc-text">什么是二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是二叉排序树"><span class="toc-number">2.</span> <span class="toc-text">什么是二叉排序树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树节点定义"><span class="toc-number">3.</span> <span class="toc-text">二叉树节点定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建二叉排序树"><span class="toc-number">4.</span> <span class="toc-text">创建二叉排序树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树中某个位置的节点"><span class="toc-number">5.</span> <span class="toc-text">二叉树中某个位置的节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#先序遍历"><span class="toc-number">6.</span> <span class="toc-text">先序遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中序遍历"><span class="toc-number">7.</span> <span class="toc-text">中序遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后序遍历"><span class="toc-number">8.</span> <span class="toc-text">后序遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#层次遍历"><span class="toc-number">9.</span> <span class="toc-text">层次遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树的深度"><span class="toc-number">10.</span> <span class="toc-text">二叉树的深度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树的所有节点数"><span class="toc-number">11.</span> <span class="toc-text">二叉树的所有节点数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树某曾中的节点数"><span class="toc-number">12.</span> <span class="toc-text">二叉树某曾中的节点数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树叶子节点数"><span class="toc-number">13.</span> <span class="toc-text">二叉树叶子节点数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树最大距离（二叉树的直径）"><span class="toc-number">14.</span> <span class="toc-text">二叉树最大距离（二叉树的直径）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树中某个节点到根节点的路径"><span class="toc-number">15.</span> <span class="toc-text">二叉树中某个节点到根节点的路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树中两个节点最近的公共父节点"><span class="toc-number">16.</span> <span class="toc-text">二叉树中两个节点最近的公共父节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树中两个节点之间的路径"><span class="toc-number">17.</span> <span class="toc-text">二叉树中两个节点之间的路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树两个节点之间的距离"><span class="toc-number">18.</span> <span class="toc-text">二叉树两个节点之间的距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#翻转二叉树"><span class="toc-number">19.</span> <span class="toc-text">翻转二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断二叉树是否完全二叉树"><span class="toc-number">20.</span> <span class="toc-text">判断二叉树是否完全二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断二叉树是否满二叉树"><span class="toc-number">21.</span> <span class="toc-text">判断二叉树是否满二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断二叉树是否平衡二叉树"><span class="toc-number">22.</span> <span class="toc-text">判断二叉树是否平衡二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">23.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Swift/" title="Swift">Swift<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Xcode插件/" title="Xcode插件">Xcode插件<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/技术篇/" title="技术篇">技术篇<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/旅游篇/" title="旅游篇">旅游篇<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/随笔/" title="随笔">随笔<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/798/" style="font-size: 10px;">798</a> <a href="/tags/CollectionView/" style="font-size: 10px;">CollectionView</a> <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/GET/" style="font-size: 10px;">GET</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hack/" style="font-size: 10px;">Hack</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/POST/" style="font-size: 10px;">POST</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UI控件/" style="font-size: 16.67px;">UI控件</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/impress-js/" style="font-size: 10px;">impress.js</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/loadview方法/" style="font-size: 10px;">loadview方法</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/不知所云/" style="font-size: 10px;">不知所云</a> <a href="/tags/串行/" style="font-size: 10px;">串行</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/北京/" style="font-size: 10px;">北京</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/多图/" style="font-size: 10px;">多图</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/欢乐谷/" style="font-size: 10px;">欢乐谷</a> <a href="/tags/瀑布流/" style="font-size: 10px;">瀑布流</a> <a href="/tags/炫酷/" style="font-size: 10px;">炫酷</a> <a href="/tags/玩/" style="font-size: 10px;">玩</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/装X/" style="font-size: 13.33px;">装X</a> <a href="/tags/逼格/" style="font-size: 10px;">逼格</a> <a href="/tags/错误信息/" style="font-size: 10px;">错误信息</a> <a href="/tags/黑客/" style="font-size: 10px;">黑客</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.baidu.com" target="_blank" title="Baidu">Baidu</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cocoachina.com" target="_blank" title="CocoaChina">CocoaChina</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/dsxniubility/" target="_blank" title="董铂然">董铂然</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 任何一个计算机的难题都可以通过增加一个抽象层来解决 <br/>
+			然而想吃胖要如何解决</p>
+<span id="busuanzi_container_site_pv">
+    本站总点击次数 <span id="busuanzi_value_site_pv"></span> 次
+</span> 
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3937501007" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com//IsaJenko" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:jenko_6453@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		由 <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> 强力驱动  Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Jenko">Jenko</a>
+		
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"jenko"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
