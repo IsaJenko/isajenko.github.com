@@ -81,6 +81,70 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/12/14/baiduMap/" title="百度地图Demo" itemprop="url">百度地图Demo</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-12-14T07:07:14.000Z" itemprop="datePublished"> 发表于 2015-12-14</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>公司项目有个小需求,要求定位一次标注该地点,然后给一个范围画一个覆盖物,看了看百度地图的文档,在这简单的记录一下</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/12/14/baiduMap/#more">More&gt;&gt;</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS/">iOS</a><a href="/tags/百度地图/">百度地图</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/12/14/baiduMap/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/12/14/baiduMap/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/12/02/xuanku/" title="推荐一款Xcode插件（炫酷到不能呼吸）" itemprop="url">推荐一款Xcode插件（炫酷到不能呼吸）</a>
   </h1>
   <p class="article-author">By
@@ -511,83 +575,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/11/05/swift2/" title="Swift基础--UITextField" itemprop="url">Swift基础--UITextField</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
-		
-  <p class="article-time">
-    <time datetime="2015-11-05T11:25:05.000Z" itemprop="datePublished"> 发表于 2015-11-05</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="UITextField">UITextField</h2><p>很多的程序都需要登录和注册页面，那么肯定少不了输入框，在iOS中，UITextField就代表了输入框，在输入框的使用中，除了一些属性以后，还有Delegate模式的应用 </p>
-<h3 id="UITextField_:_UIControl_:_UIView_:_UIResponder_:_NSObject">UITextField : UIControl : UIView : UIResponder : NSObject</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化，并设置frame</span></span><br><span class="line">let textField = <span class="function"><span class="title">UITextField</span><span class="params">(frame: CGRectMake(<span class="number">50</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">35</span>)</span></span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置输入框样式</span></span><br><span class="line">textField<span class="class">.borderStyle</span> = UITextBorderStyle<span class="class">.RoundedRect</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置提示文字</span></span><br><span class="line">textField<span class="class">.placeholder</span> = <span class="string">"请输入邮箱"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置弹出键盘颜色</span></span><br><span class="line">textField<span class="class">.keyboardAppearance</span> = UIKeyboardAppearance<span class="class">.Dark</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置键盘上return按键文字</span></span><br><span class="line">textField<span class="class">.returnKeyType</span> = UIReturnKeyType<span class="class">.Join</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置键盘模式</span></span><br><span class="line">textField<span class="class">.keyboardType</span> = UIKeyboardType<span class="class">.EmailAddress</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置delegate</span></span><br><span class="line">textField<span class="class">.delegate</span> = self</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加到视图上</span></span><br><span class="line">view.<span class="function"><span class="title">addSubview</span><span class="params">(textField)</span></span></span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">遵守UITextField的协议方法，将协议直接写到父类名的后面</span><br></pre></td></tr></table></figure>
-<p>class ViewController: UIViewController, UITextFieldDelegate {<br>    ……<br>}</p>
-<p>实现协议方法</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当点击了键盘上的return按钮，执行此方法</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">textFieldShouldReturn</span><span class="params">(textField: UITextField)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="comment">// 释放第一响应者</span></span><br><span class="line">    textField.resignFirstResponder()</span><br><span class="line">    <span class="built_in">print</span>(textField.text)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="部分代码解释">部分代码解释</h2><ul>
-<li>输入框的代理模式使用步骤：</li>
-</ul>
-<p>1.设置delegate为当前控制器</p>
-<p>2.当前控制器类，遵守协议</p>
-<p>3.实现需要的协议中的方法 </p>
-<ul>
-<li><code>textField.resignFirstResponder()：</code> 让输入框释放了第一响应者，实现了键盘的回收</li>
-<li>除了释放第一响应者，还可以主动成为第一响应者： <code>textField.becomeFirstResponder()</code></li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Swift/">Swift</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/UI控件/">UI控件</a><a href="/tags/swift/">swift</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/11/05/swift2/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/05/swift2/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -614,7 +601,7 @@
 		  
 		
 		  
-			<li><a href="/categories/iOS/" title="iOS">iOS<sup>6</sup></a></li>
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>7</sup></a></li>
 		  
 		
 		  
@@ -641,7 +628,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/798/" style="font-size: 10px;">798</a> <a href="/tags/CollectionView/" style="font-size: 10px;">CollectionView</a> <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/GET/" style="font-size: 10px;">GET</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hack/" style="font-size: 10px;">Hack</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/POST/" style="font-size: 10px;">POST</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UI控件/" style="font-size: 16.67px;">UI控件</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/impress-js/" style="font-size: 10px;">impress.js</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/loadview方法/" style="font-size: 10px;">loadview方法</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/不知所云/" style="font-size: 10px;">不知所云</a> <a href="/tags/串行/" style="font-size: 10px;">串行</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/北京/" style="font-size: 10px;">北京</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/多图/" style="font-size: 10px;">多图</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/欢乐谷/" style="font-size: 10px;">欢乐谷</a> <a href="/tags/瀑布流/" style="font-size: 10px;">瀑布流</a> <a href="/tags/炫酷/" style="font-size: 10px;">炫酷</a> <a href="/tags/玩/" style="font-size: 10px;">玩</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/装X/" style="font-size: 13.33px;">装X</a> <a href="/tags/逼格/" style="font-size: 10px;">逼格</a> <a href="/tags/错误信息/" style="font-size: 10px;">错误信息</a> <a href="/tags/黑客/" style="font-size: 10px;">黑客</a>
+       <a href="/tags/798/" style="font-size: 10px;">798</a> <a href="/tags/CollectionView/" style="font-size: 10px;">CollectionView</a> <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/GET/" style="font-size: 10px;">GET</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hack/" style="font-size: 10px;">Hack</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/POST/" style="font-size: 10px;">POST</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UI控件/" style="font-size: 15px;">UI控件</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/impress-js/" style="font-size: 10px;">impress.js</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/loadview方法/" style="font-size: 10px;">loadview方法</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/swift/" style="font-size: 17.5px;">swift</a> <a href="/tags/不知所云/" style="font-size: 10px;">不知所云</a> <a href="/tags/串行/" style="font-size: 10px;">串行</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/北京/" style="font-size: 10px;">北京</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/多图/" style="font-size: 10px;">多图</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/欢乐谷/" style="font-size: 10px;">欢乐谷</a> <a href="/tags/瀑布流/" style="font-size: 10px;">瀑布流</a> <a href="/tags/炫酷/" style="font-size: 10px;">炫酷</a> <a href="/tags/玩/" style="font-size: 10px;">玩</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a> <a href="/tags/装X/" style="font-size: 12.5px;">装X</a> <a href="/tags/逼格/" style="font-size: 10px;">逼格</a> <a href="/tags/错误信息/" style="font-size: 10px;">错误信息</a> <a href="/tags/黑客/" style="font-size: 10px;">黑客</a>
     </div>
   </div>
 
