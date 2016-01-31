@@ -81,6 +81,73 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/11/08/swift3/" title="Swift基础--UIButton" itemprop="url">Swift基础--UIButton</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-08T06:23:29.000Z" itemprop="datePublished"> 发表于 2015-11-08</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="UIButton">UIButton</h2><p>当用户需要点击屏幕的时候，我们需要给用户提供一个可以点击的按钮，它就是UIButton。它的重点是接受用户的点击，从而响应事件</p>
+<h3 id="UIBtton_:_UIControl_:_UIView_:_UIResponder_:_NSObject">UIBtton : UIControl : UIView : UIResponder : NSObject</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化button，并设置按钮的样式</span></span><br><span class="line">let <span class="tag">button</span> = <span class="function"><span class="title">UIButton</span><span class="params">(type: UIButtonType.System)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置frame</span></span><br><span class="line"><span class="tag">button</span><span class="class">.frame</span> = <span class="function"><span class="title">CGRectMake</span><span class="params">(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">35</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置文字，需要根据状态</span></span><br><span class="line"><span class="tag">button</span>.<span class="function"><span class="title">setTitle</span><span class="params">(<span class="string">"我是一个小按钮"</span>, forState: UIControlState.Normal)</span></span></span><br><span class="line"><span class="tag">button</span>.<span class="function"><span class="title">setTitle</span><span class="params">(<span class="string">"快放手，不要点我"</span>, forState: UIControlState.Highlighted)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 点击的时候，会有高亮效果</span></span><br><span class="line"><span class="tag">button</span><span class="class">.showsTouchWhenHighlighted</span> = true</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定事件</span></span><br><span class="line"><span class="tag">button</span>.<span class="function"><span class="title">addTarget</span><span class="params">(self, action: <span class="string">"buttonAction:"</span>, forControlEvents: UIControlEvents.TouchUpInside)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加到视图上</span></span><br><span class="line">self<span class="class">.view</span><span class="class">.addSubview</span>(button)</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按钮的事件</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">buttonAction</span><span class="params">(sender: UIButton)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"点击了button"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码部分解释：">代码部分解释：</h2><p>1.button在设置文字的时候，需要指定状态，例如: <code>UIControlState.Normal</code> 正常，<code>UIControlState.Highlighted</code> 高亮等等其它状态 </p>
+<p>2.OC中，<code>@selector(buttonAction:)</code> 这样的写法，在Swift中可以直接写成字符串 <code>&quot;buttonAction:&quot;</code>，或者写成标准写法<code>Selector(&quot;buttonAction:&quot;)</code>，建议直接写成字符串，使我们的代码更加的简洁</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Swift/">Swift</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/UI控件/">UI控件</a><a href="/tags/swift/">swift</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/11/08/swift3/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/08/swift3/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/11/05/swift2/" title="Swift基础--UITextField" itemprop="url">Swift基础--UITextField</a>
   </h1>
   <p class="article-author">By
@@ -477,70 +544,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/06/22/transfer/" title="iOS-网络请求数据" itemprop="url">iOS-网络请求数据</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
-		
-  <p class="article-time">
-    <time datetime="2015-06-22T10:30:40.000Z" itemprop="datePublished"> 发表于 2015-06-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>今天来说说关于iOS开发过程中的网络请求。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/06/22/transfer/#more">More&gt;&gt;</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/技术篇/">技术篇</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/GET/">GET</a><a href="/tags/JSON/">JSON</a><a href="/tags/POST/">POST</a><a href="/tags/iOS/">iOS</a><a href="/tags/同步/">同步</a><a href="/tags/异步/">异步</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/06/22/transfer/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/22/transfer/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -579,6 +582,10 @@
 		  
 		
 		  
+			<li><a href="/categories/猴年/" title="猴年">猴年<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/算法/" title="算法">算法<sup>1</sup></a></li>
 		  
 		
@@ -594,7 +601,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/798/" style="font-size: 10px;">798</a> <a href="/tags/CollectionView/" style="font-size: 10px;">CollectionView</a> <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/GET/" style="font-size: 10px;">GET</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hack/" style="font-size: 10px;">Hack</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/POST/" style="font-size: 10px;">POST</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UI控件/" style="font-size: 15px;">UI控件</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/impress-js/" style="font-size: 10px;">impress.js</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/loadview方法/" style="font-size: 10px;">loadview方法</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/swift/" style="font-size: 17.5px;">swift</a> <a href="/tags/不知所云/" style="font-size: 10px;">不知所云</a> <a href="/tags/串行/" style="font-size: 10px;">串行</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/北京/" style="font-size: 10px;">北京</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/多图/" style="font-size: 10px;">多图</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/欢乐谷/" style="font-size: 10px;">欢乐谷</a> <a href="/tags/瀑布流/" style="font-size: 10px;">瀑布流</a> <a href="/tags/炫酷/" style="font-size: 10px;">炫酷</a> <a href="/tags/玩/" style="font-size: 10px;">玩</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a> <a href="/tags/装X/" style="font-size: 12.5px;">装X</a> <a href="/tags/逼格/" style="font-size: 10px;">逼格</a> <a href="/tags/错误信息/" style="font-size: 10px;">错误信息</a> <a href="/tags/黑客/" style="font-size: 10px;">黑客</a>
+       <a href="/tags/798/" style="font-size: 10px;">798</a> <a href="/tags/CollectionView/" style="font-size: 10px;">CollectionView</a> <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/GET/" style="font-size: 10px;">GET</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Hack/" style="font-size: 10px;">Hack</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/POST/" style="font-size: 10px;">POST</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UI控件/" style="font-size: 15px;">UI控件</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/impress-js/" style="font-size: 10px;">impress.js</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/loadview方法/" style="font-size: 10px;">loadview方法</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/swift/" style="font-size: 17.5px;">swift</a> <a href="/tags/不知所云/" style="font-size: 10px;">不知所云</a> <a href="/tags/串行/" style="font-size: 10px;">串行</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/北京/" style="font-size: 10px;">北京</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/多图/" style="font-size: 10px;">多图</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/展望未来-我是一只小猴子/" style="font-size: 10px;">展望未来,我是一只小猴子</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/欢乐谷/" style="font-size: 10px;">欢乐谷</a> <a href="/tags/瀑布流/" style="font-size: 10px;">瀑布流</a> <a href="/tags/炫酷/" style="font-size: 10px;">炫酷</a> <a href="/tags/玩/" style="font-size: 10px;">玩</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a> <a href="/tags/装X/" style="font-size: 12.5px;">装X</a> <a href="/tags/逼格/" style="font-size: 10px;">逼格</a> <a href="/tags/错误信息/" style="font-size: 10px;">错误信息</a> <a href="/tags/黑客/" style="font-size: 10px;">黑客</a>
     </div>
   </div>
 
@@ -669,7 +676,7 @@
 		
 
 		<p class="copyright">
-		由 <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> 强力驱动  Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		由 <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> 强力驱动  Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Jenko">Jenko</a>
 		
