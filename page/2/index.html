@@ -1,0 +1,816 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Jenko</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Jenko">
+    
+
+    
+    <meta name="description" content="任何一个计算机的难题都可以通过增加一个抽象层来解决">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jenko">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Jenko">
+<meta property="og:description" content="任何一个计算机的难题都可以通过增加一个抽象层来解决">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jenko">
+<meta name="twitter:description" content="任何一个计算机的难题都可以通过增加一个抽象层来解决">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Jenko" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Jenko" title="Jenko"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Jenko">Jenko</a></h1>
+				<h2 class="blog-motto">--The world not death,death to surrender.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/resume">Resume</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/17/swift4/" title="Swift_函数(Function)" itemprop="url">Swift_函数(Function)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-17T08:13:49.000Z" itemprop="datePublished"> 发表于 2015-11-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="函数(Function)">函数(Function)</h2><p>Swift中的函数，就相当于OC中的方法。但是语法上变化的地方很多，并且还增加了OC中没有的功能，下面详细介绍：</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/11/17/swift4/#more">More&gt;&gt;</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Swift/">Swift</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS/">iOS</a><a href="/tags/swift/">swift</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/11/17/swift4/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/17/swift4/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/08/swift3/" title="Swift基础--UIButton" itemprop="url">Swift基础--UIButton</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-08T06:23:29.000Z" itemprop="datePublished"> 发表于 2015-11-08</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="UIButton">UIButton</h2><p>当用户需要点击屏幕的时候，我们需要给用户提供一个可以点击的按钮，它就是UIButton。它的重点是接受用户的点击，从而响应事件</p>
+<h3 id="UIBtton_:_UIControl_:_UIView_:_UIResponder_:_NSObject">UIBtton : UIControl : UIView : UIResponder : NSObject</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化button，并设置按钮的样式</span></span><br><span class="line">let <span class="tag">button</span> = <span class="function"><span class="title">UIButton</span><span class="params">(type: UIButtonType.System)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置frame</span></span><br><span class="line"><span class="tag">button</span><span class="class">.frame</span> = <span class="function"><span class="title">CGRectMake</span><span class="params">(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">35</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置文字，需要根据状态</span></span><br><span class="line"><span class="tag">button</span>.<span class="function"><span class="title">setTitle</span><span class="params">(<span class="string">"我是一个小按钮"</span>, forState: UIControlState.Normal)</span></span></span><br><span class="line"><span class="tag">button</span>.<span class="function"><span class="title">setTitle</span><span class="params">(<span class="string">"快放手，不要点我"</span>, forState: UIControlState.Highlighted)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 点击的时候，会有高亮效果</span></span><br><span class="line"><span class="tag">button</span><span class="class">.showsTouchWhenHighlighted</span> = true</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定事件</span></span><br><span class="line"><span class="tag">button</span>.<span class="function"><span class="title">addTarget</span><span class="params">(self, action: <span class="string">"buttonAction:"</span>, forControlEvents: UIControlEvents.TouchUpInside)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加到视图上</span></span><br><span class="line">self<span class="class">.view</span><span class="class">.addSubview</span>(button)</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按钮的事件</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">buttonAction</span><span class="params">(sender: UIButton)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"点击了button"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码部分解释：">代码部分解释：</h2><p>1.button在设置文字的时候，需要指定状态，例如: <code>UIControlState.Normal</code> 正常，<code>UIControlState.Highlighted</code> 高亮等等其它状态 </p>
+<p>2.OC中，<code>@selector(buttonAction:)</code> 这样的写法，在Swift中可以直接写成字符串 <code>&quot;buttonAction:&quot;</code>，或者写成标准写法<code>Selector(&quot;buttonAction:&quot;)</code>，建议直接写成字符串，使我们的代码更加的简洁</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Swift/">Swift</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/UI控件/">UI控件</a><a href="/tags/swift/">swift</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/11/08/swift3/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/08/swift3/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/05/swift2/" title="Swift基础--UITextField" itemprop="url">Swift基础--UITextField</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-05T11:25:05.000Z" itemprop="datePublished"> 发表于 2015-11-05</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="UITextField">UITextField</h2><p>很多的程序都需要登录和注册页面，那么肯定少不了输入框，在iOS中，UITextField就代表了输入框，在输入框的使用中，除了一些属性以后，还有Delegate模式的应用 </p>
+<h3 id="UITextField_:_UIControl_:_UIView_:_UIResponder_:_NSObject">UITextField : UIControl : UIView : UIResponder : NSObject</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化，并设置frame</span></span><br><span class="line">let textField = <span class="function"><span class="title">UITextField</span><span class="params">(frame: CGRectMake(<span class="number">50</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">35</span>)</span></span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置输入框样式</span></span><br><span class="line">textField<span class="class">.borderStyle</span> = UITextBorderStyle<span class="class">.RoundedRect</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置提示文字</span></span><br><span class="line">textField<span class="class">.placeholder</span> = <span class="string">"请输入邮箱"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置弹出键盘颜色</span></span><br><span class="line">textField<span class="class">.keyboardAppearance</span> = UIKeyboardAppearance<span class="class">.Dark</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置键盘上return按键文字</span></span><br><span class="line">textField<span class="class">.returnKeyType</span> = UIReturnKeyType<span class="class">.Join</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置键盘模式</span></span><br><span class="line">textField<span class="class">.keyboardType</span> = UIKeyboardType<span class="class">.EmailAddress</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置delegate</span></span><br><span class="line">textField<span class="class">.delegate</span> = self</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加到视图上</span></span><br><span class="line">view.<span class="function"><span class="title">addSubview</span><span class="params">(textField)</span></span></span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">遵守UITextField的协议方法，将协议直接写到父类名的后面</span><br></pre></td></tr></table></figure>
+<p>class ViewController: UIViewController, UITextFieldDelegate {<br>    ……<br>}</p>
+<p>实现协议方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当点击了键盘上的return按钮，执行此方法</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">textFieldShouldReturn</span><span class="params">(textField: UITextField)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="comment">// 释放第一响应者</span></span><br><span class="line">    textField.resignFirstResponder()</span><br><span class="line">    <span class="built_in">print</span>(textField.text)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="部分代码解释">部分代码解释</h2><ul>
+<li>输入框的代理模式使用步骤：</li>
+</ul>
+<p>1.设置delegate为当前控制器</p>
+<p>2.当前控制器类，遵守协议</p>
+<p>3.实现需要的协议中的方法 </p>
+<ul>
+<li><code>textField.resignFirstResponder()：</code> 让输入框释放了第一响应者，实现了键盘的回收</li>
+<li>除了释放第一响应者，还可以主动成为第一响应者： <code>textField.becomeFirstResponder()</code></li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Swift/">Swift</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/UI控件/">UI控件</a><a href="/tags/swift/">swift</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/11/05/swift2/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/05/swift2/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/31/MVVM/" title="MVVM" itemprop="url">MVVM</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-10-31T08:56:41.000Z" itemprop="datePublished"> 发表于 2015-10-31</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="MVVM架构的一个iOS小程序"><a href="https://github.com/IsaJenko/learngit/tree/master/MVVM-master" target="_blank" rel="external">MVVM架构的一个iOS小程序</a></h1>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/MVVM/">MVVM</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/10/31/MVVM/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/10/31/MVVM/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/28/Twotrees/" title="You need to know" itemprop="url">You need to know</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-10-28T12:39:15.000Z" itemprop="datePublished"> 发表于 2015-10-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>这几天详细了解了下二叉树的相关算法，原因是看了唐boy的一篇博客(<a href="http://blog.devtang.com/blog/2015/06/16/talk-about-tech-interview/">你会翻转二叉树吗?</a>)，还有一篇关于<a href="http://www.cocoachina.com/programmer/20151015/13687.html">百度的校招</a>，深刻体会到二叉树的重要性。于是乎，从网上收集并整理了一些关于二叉树的资料，及相关算法的实现（主要是Objective-C的，但是算法思想是相通的），以便以后复习时查阅。<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/10/28/Twotrees/#more">More&gt;&gt;</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/二叉树/">二叉树</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/10/28/Twotrees/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/10/28/Twotrees/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/27/swift1/" title="Swift基础--UILabel" itemprop="url">Swift基础--UILabel</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-27T03:22:29.000Z" itemprop="datePublished"> 发表于 2015-09-27</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="UILabel">UILabel</h2><p>在iOS开发中，显示文字内容的控件是UILabel，除了显示文字以后，还可以设置文字颜色，对齐方式，字体等等属性，具体内容如下：</p>
+<h3 id="UILabel_:_UIView_:_UIResponder_:_NSObject">UILabel : UIView : UIResponder : NSObject</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化，并设置frame</span></span><br><span class="line">let <span class="tag">label</span> = <span class="function"><span class="title">UILabel</span><span class="params">(frame: CGRectMake(<span class="number">50</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">35</span>)</span></span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置背景色</span></span><br><span class="line"><span class="tag">label</span><span class="class">.backgroundColor</span> = UIColor.<span class="function"><span class="title">cyanColor</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置文字</span></span><br><span class="line"><span class="tag">label</span><span class="class">.text</span> = <span class="string">"我是一个小Label，小丫小Label"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置文字颜色</span></span><br><span class="line"><span class="tag">label</span><span class="class">.textColor</span> = UIColor.<span class="function"><span class="title">blackColor</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置字体</span></span><br><span class="line"><span class="tag">label</span><span class="class">.font</span> = UIFont.<span class="function"><span class="title">boldSystemFontOfSize</span><span class="params">(<span class="number">20.0</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置对齐方式</span></span><br><span class="line"><span class="tag">label</span><span class="class">.textAlignment</span> = NSTextAlignment<span class="class">.Center</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置文字函数   </span></span><br><span class="line"><span class="tag">label</span><span class="class">.numberOfLines</span> = <span class="number">0</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加到视图上   </span></span><br><span class="line">self<span class="class">.view</span><span class="class">.addSubview</span>(label)</span><br></pre></td></tr></table></figure>
+<h2 id="部分代码解释">部分代码解释</h2><ul>
+<li>CGRect的使用和OC是一样的</li>
+<li>UIColor.cyanColor() 类方法的使用直接使用.进行调用</li>
+<li>Swift中的字符串不需要添加 ‘@’ 符号 </li>
+<li>NSTextAlignment.Center Swift中的枚举，需要使用.进行选择 </li>
+<li>label的numberOfLines属性设置为0，会自动换行 </li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Swift/">Swift</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/UI控件/">UI控件</a><a href="/tags/swift/">swift</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/09/27/swift1/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/09/27/swift1/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/15/UITableView/" title="UITableView" itemprop="url">UITableView</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Jenko" target="_blank" itemprop="author">Jenko</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-15T13:31:04.000Z" itemprop="datePublished"> 发表于 2015-09-15</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="UITableView(表示图)">UITableView(表示图)</h2>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/09/15/UITableView/#more">More&gt;&gt;</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/UITableView/">UITableView</a><a href="/tags/多图/">多图</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/09/15/UITableView/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/09/15/UITableView/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Swift/" title="Swift">Swift<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Xcode插件/" title="Xcode插件">Xcode插件<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/技术篇/" title="技术篇">技术篇<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/旅游篇/" title="旅游篇">旅游篇<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/猴年/" title="猴年">猴年<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/随笔/" title="随笔">随笔<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/798/" style="font-size: 10px;">798</a> <a href="/tags/CollectionView/" style="font-size: 10px;">CollectionView</a> <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/GET/" style="font-size: 10px;">GET</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/Hack/" style="font-size: 10px;">Hack</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/POST/" style="font-size: 10px;">POST</a> <a href="/tags/UITableView/" style="font-size: 10px;">UITableView</a> <a href="/tags/UI控件/" style="font-size: 15px;">UI控件</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/impress-js/" style="font-size: 10px;">impress.js</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/loadview方法/" style="font-size: 10px;">loadview方法</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/swift/" style="font-size: 17.5px;">swift</a> <a href="/tags/不知所云/" style="font-size: 10px;">不知所云</a> <a href="/tags/串行/" style="font-size: 10px;">串行</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/北京/" style="font-size: 10px;">北京</a> <a href="/tags/同步/" style="font-size: 10px;">同步</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/多图/" style="font-size: 10px;">多图</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/展望未来-我是一只小猴子/" style="font-size: 10px;">展望未来,我是一只小猴子</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/欢乐谷/" style="font-size: 10px;">欢乐谷</a> <a href="/tags/瀑布流/" style="font-size: 10px;">瀑布流</a> <a href="/tags/炫酷/" style="font-size: 10px;">炫酷</a> <a href="/tags/玩/" style="font-size: 10px;">玩</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a> <a href="/tags/装X/" style="font-size: 12.5px;">装X</a> <a href="/tags/逼格/" style="font-size: 10px;">逼格</a> <a href="/tags/错误信息/" style="font-size: 10px;">错误信息</a> <a href="/tags/黑客/" style="font-size: 10px;">黑客</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.baidu.com" target="_blank" title="Baidu">Baidu</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cocoachina.com" target="_blank" title="CocoaChina">CocoaChina</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/dsxniubility/" target="_blank" title="董铂然">董铂然</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 任何一个计算机的难题都可以通过增加一个抽象层来解决 <br/>
+			然而想吃胖要如何解决</p>
+<span id="busuanzi_container_site_pv">
+    本站总点击次数 <span id="busuanzi_value_site_pv"></span> 次
+</span> 
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3937501007" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com//IsaJenko" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:jenko_6453@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		由 <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> 强力驱动  Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Jenko">Jenko</a>
+		
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"jenko"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>
